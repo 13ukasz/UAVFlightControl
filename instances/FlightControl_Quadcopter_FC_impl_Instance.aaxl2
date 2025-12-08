@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance">
+  <instance:SystemInstance name="Quadcopter_FC_impl_Instance" category="system">
+    <componentInstance name="main_bus_spi" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.spi.impl"/>
+    </componentInstance>
+    <componentInstance name="main_bus_uart" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedBusSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.uart.impl"/>
+    </componentInstance>
+    <componentInstance name="main_bus_pwm" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedBusSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.pwm.impl"/>
+    </componentInstance>
+    <componentInstance name="acc_gyro_sensor" category="device">
+      <featureInstance name="get_imu_data" direction="out" type="/1">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="spi_bus" category="busAccess" type="/2">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.IMU"/>
+    </componentInstance>
+    <componentInstance name="radio_receiver" category="device">
+      <featureInstance name="rc_data_out" direction="out" type="/3">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint8_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Dimension"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:IntegerLiteral" value="25"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="uart_bus" category="busAccess" type="/4">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.Receiver"/>
+    </componentInstance>
+    <componentInstance name="esc_front_left" category="device">
+      <featureInstance name="pwm_in" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="pwm_bus" category="busAccess" type="/6">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.ESC"/>
+    </componentInstance>
+    <componentInstance name="esc_front_right" category="device">
+      <featureInstance name="pwm_in" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="pwm_bus" category="busAccess" type="/6">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.ESC"/>
+    </componentInstance>
+    <componentInstance name="esc_rear_left" category="device">
+      <featureInstance name="pwm_in" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="pwm_bus" category="busAccess" type="/6">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.ESC"/>
+    </componentInstance>
+    <componentInstance name="esc_rear_right" category="device">
+      <featureInstance name="pwm_in" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="pwm_bus" category="busAccess" type="/6">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDeviceSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="../FlightControl.aadl#FlightControl.ESC"/>
+    </componentInstance>
+    <componentInstance name="fc_process" category="process">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="hw_imu_in" type="/1">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="hw_rc_in" type="/3">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint8_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Dimension"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:IntegerLiteral" value="25"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.1"/>
+      </featureInstance>
+      <featureInstance name="hw_m1_out" direction="out" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.2"/>
+      </featureInstance>
+      <featureInstance name="hw_m2_out" direction="out" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="hw_m3_out" direction="out" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.4"/>
+      </featureInstance>
+      <featureInstance name="hw_m4_out" direction="out" type="/5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataPort.5"/>
+      </featureInstance>
+      <componentInstance name="th_imu" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="imu_raw_in" type="/1">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="imu_filtered_out" direction="out" type="/1">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.1"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="../FlightControl.aadl#FlightControl.IMU_Driver.impl"/>
+      </componentInstance>
+      <componentInstance name="th_rc" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="rc_frame_in" type="/3">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.0"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+          </ownedPropertyAssociation>
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:ClassifierValue">
+                  <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint8_t"/>
+                </ownedListElement>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Dimension"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:IntegerLiteral" value="25"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="target_attitude_out" direction="out" type="/7">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+        </featureInstance>
+        <featureInstance name="throttle_out" direction="out" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.2"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedThreadSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="../FlightControl.aadl#FlightControl.RC_Handler.impl"/>
+      </componentInstance>
+      <componentInstance name="th_est" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="imu_data_in" type="/1">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="current_attitude_out" direction="out" type="/7">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedThreadSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="../FlightControl.aadl#FlightControl.Attitude_Estimator.impl"/>
+      </componentInstance>
+      <componentInstance name="th_pid" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="current_att_in" type="/7">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="target_att_in" type="/7">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.1"/>
+        </featureInstance>
+        <featureInstance name="throttle_in" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.2"/>
+        </featureInstance>
+        <featureInstance name="pid_roll_out" direction="out" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.3"/>
+        </featureInstance>
+        <featureInstance name="pid_pitch_out" direction="out" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.4"/>
+        </featureInstance>
+        <featureInstance name="pid_yaw_out" direction="out" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.5"/>
+        </featureInstance>
+        <featureInstance name="throttle_out" direction="out" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.6"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedThreadSubcomponent.3"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="../FlightControl.aadl#FlightControl.PID_Controller.impl"/>
+      </componentInstance>
+      <componentInstance name="th_mix" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.10"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="pid_roll" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="pid_pitch" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.1"/>
+        </featureInstance>
+        <featureInstance name="pid_yaw" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.2"/>
+        </featureInstance>
+        <featureInstance name="throttle" type="/8">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.3"/>
+        </featureInstance>
+        <featureInstance name="motor1_out" direction="out" type="/5">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:ClassifierValue">
+                  <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+                </ownedListElement>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.4"/>
+        </featureInstance>
+        <featureInstance name="motor2_out" direction="out" type="/5">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:ClassifierValue">
+                  <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+                </ownedListElement>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.5"/>
+        </featureInstance>
+        <featureInstance name="motor3_out" direction="out" type="/5">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:ClassifierValue">
+                  <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+                </ownedListElement>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.6"/>
+        </featureInstance>
+        <featureInstance name="motor4_out" direction="out" type="/5">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="aadl2:ClassifierValue">
+                  <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+                </ownedListElement>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.7"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedThreadSubcomponent.4"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="../FlightControl.aadl#FlightControl.Motor_Mixer.impl"/>
+      </componentInstance>
+      <connectionInstance name="th_imu.imu_filtered_out -> th_est.imu_data_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.2/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.0/@featureInstance.1">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.0/@featureInstance.1" destination="/0/@componentInstance.9/@componentInstance.2/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_rc.target_attitude_out -> th_pid.target_att_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.1" source="/0/@componentInstance.9/@componentInstance.1/@featureInstance.1">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.1/@featureInstance.1" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.4"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_rc.throttle_out -> th_pid.throttle_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.2" source="/0/@componentInstance.9/@componentInstance.1/@featureInstance.2">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.1/@featureInstance.2" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.2">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.5"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_est.current_attitude_out -> th_pid.current_att_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.2/@featureInstance.1">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.2/@featureInstance.1" destination="/0/@componentInstance.9/@componentInstance.3/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_pid.pid_roll_out -> th_mix.pid_roll" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.3">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.3" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.6"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_pid.pid_pitch_out -> th_mix.pid_pitch" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.1" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.4">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.4" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.7"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_pid.pid_yaw_out -> th_mix.pid_yaw" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.2" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.5">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.5" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.2">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.8"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="th_pid.throttle_out -> th_mix.throttle" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.3" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.6">
+        <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.3/@featureInstance.6" destination="/0/@componentInstance.9/@componentInstance.4/@featureInstance.3">
+          <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.9"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="../FlightControl.aadl#FlightControl.Flight_Software.impl"/>
+    </componentInstance>
+    <componentInstance name="main_mcu" category="processor">
+      <featureInstance name="i2c_bus" category="busAccess" type="/9">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedBusAccess.0"/>
+      </featureInstance>
+      <featureInstance name="spi_bus" category="busAccess" type="/2">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedBusAccess.1"/>
+      </featureInstance>
+      <featureInstance name="uart_bus" category="busAccess" type="/4">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedBusAccess.2"/>
+      </featureInstance>
+      <featureInstance name="pwm_bus" category="busAccess" type="/6">
+        <feature xsi:type="aadl2:BusAccess" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedBusAccess.3"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorType" href="../FlightControl.aadl#FlightControl.MCU"/>
+    </componentInstance>
+    <connectionInstance name="main_bus_spi -> acc_gyro_sensor.spi_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.3/@featureInstance.1" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_spi -> main_mcu.spi_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.10/@featureInstance.1" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.10/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_uart -> radio_receiver.uart_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.4/@featureInstance.1" source="/0/@componentInstance.1">
+      <connectionReference context="/0" source="/0/@componentInstance.1" destination="/0/@componentInstance.4/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_uart -> main_mcu.uart_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.10/@featureInstance.2" source="/0/@componentInstance.1">
+      <connectionReference context="/0" source="/0/@componentInstance.1" destination="/0/@componentInstance.10/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_pwm -> main_mcu.pwm_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.10/@featureInstance.3" source="/0/@componentInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.2" destination="/0/@componentInstance.10/@featureInstance.3">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_pwm -> esc_front_left.pwm_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.5/@featureInstance.1" source="/0/@componentInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.2" destination="/0/@componentInstance.5/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_pwm -> esc_front_right.pwm_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.6/@featureInstance.1" source="/0/@componentInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.2" destination="/0/@componentInstance.6/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_pwm -> esc_rear_left.pwm_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.7/@featureInstance.1" source="/0/@componentInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.2" destination="/0/@componentInstance.7/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_bus_pwm -> esc_rear_right.pwm_bus" complete="true" kind="accessConnection" destination="/0/@componentInstance.8/@featureInstance.1" source="/0/@componentInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.2" destination="/0/@componentInstance.8/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.8"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="acc_gyro_sensor.get_imu_data -> fc_process.th_imu.imu_raw_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.0/@featureInstance.0" source="/0/@componentInstance.3/@featureInstance.0">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0" source="/0/@componentInstance.3/@featureInstance.0" destination="/0/@componentInstance.9/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@featureInstance.0" destination="/0/@componentInstance.9/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="radio_receiver.rc_data_out -> fc_process.th_rc.rc_frame_in" complete="true" kind="portConnection" destination="/0/@componentInstance.9/@componentInstance.1/@featureInstance.0" source="/0/@componentInstance.4/@featureInstance.0">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0" source="/0/@componentInstance.4/@featureInstance.0" destination="/0/@componentInstance.9/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@featureInstance.1" destination="/0/@componentInstance.9/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="fc_process.th_mix.motor1_out -> esc_front_left.pwm_in" complete="true" kind="portConnection" destination="/0/@componentInstance.5/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.4">
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.4" destination="/0/@componentInstance.9/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.10"/>
+      </connectionReference>
+      <connectionReference context="/0" source="/0/@componentInstance.9/@featureInstance.2" destination="/0/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="fc_process.th_mix.motor2_out -> esc_front_right.pwm_in" complete="true" kind="portConnection" destination="/0/@componentInstance.6/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.5">
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.5" destination="/0/@componentInstance.9/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.11"/>
+      </connectionReference>
+      <connectionReference context="/0" source="/0/@componentInstance.9/@featureInstance.3" destination="/0/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="fc_process.th_mix.motor3_out -> esc_rear_left.pwm_in" complete="true" kind="portConnection" destination="/0/@componentInstance.7/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.6">
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.6" destination="/0/@componentInstance.9/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.12"/>
+      </connectionReference>
+      <connectionReference context="/0" source="/0/@componentInstance.9/@featureInstance.4" destination="/0/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="fc_process.th_mix.motor4_out -> esc_rear_right.pwm_in" complete="true" kind="portConnection" destination="/0/@componentInstance.8/@featureInstance.0" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.7">
+      <connectionReference context="/0/@componentInstance.9" source="/0/@componentInstance.9/@componentInstance.4/@featureInstance.7" destination="/0/@componentInstance.9/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedPortConnection.13"/>
+      </connectionReference>
+      <connectionReference context="/0" source="/0/@componentInstance.9/@featureInstance.5" destination="/0/@componentInstance.8/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_mcu.spi_bus -> main_bus_spi" complete="true" kind="accessConnection" destination="/0/@componentInstance.0" source="/0/@componentInstance.10/@featureInstance.1">
+      <connectionReference context="/0" source="/0/@componentInstance.10/@featureInstance.1" destination="/0/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_mcu.uart_bus -> main_bus_uart" complete="true" kind="accessConnection" destination="/0/@componentInstance.1" source="/0/@componentInstance.10/@featureInstance.2">
+      <connectionReference context="/0" source="/0/@componentInstance.10/@featureInstance.2" destination="/0/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="main_mcu.pwm_bus -> main_bus_pwm" complete="true" kind="accessConnection" destination="/0/@componentInstance.2" source="/0/@componentInstance.10/@featureInstance.3">
+      <connectionReference context="/0" source="/0/@componentInstance.10/@featureInstance.3" destination="/0/@componentInstance.2" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAccessConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <classifier xsi:type="aadl2:SystemImplementation" href="../FlightControl.aadl#FlightControl.Quadcopter_FC.impl"/>
+    <systemOperationMode name="No Modes"/>
+    <componentImplementation xsi:type="aadl2:SystemImplementation" href="../FlightControl.aadl#FlightControl.Quadcopter_FC.impl"/>
+  </instance:SystemInstance>
+  <instance:ComponentInstance name="FlightControl::imu_data" category="data">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <classifier xsi:type="aadl2:DataType" href="../FlightControl.aadl#FlightControl.imu_data"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::spi.impl" category="bus">
+    <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.spi.impl"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::sbus_frame" category="data">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint8_t"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Dimension"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="25"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <classifier xsi:type="aadl2:DataType" href="../FlightControl.aadl#FlightControl.sbus_frame"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::uart.impl" category="bus">
+    <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.uart.impl"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::motor_command" category="data">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.uint16_t"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <classifier xsi:type="aadl2:DataType" href="../FlightControl.aadl#FlightControl.motor_command"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::pwm.impl" category="bus">
+    <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.pwm.impl"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::attitude_data" category="data">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../FlightControl.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <classifier xsi:type="aadl2:DataType" href="../FlightControl.aadl#FlightControl.attitude_data"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="C_Types::float" category="data">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.4"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../C_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <classifier xsi:type="aadl2:DataType" href="../C_Types.aadl#C_Types.float"/>
+  </instance:ComponentInstance>
+  <instance:ComponentInstance name="FlightControl::i2c.impl" category="bus">
+    <classifier xsi:type="aadl2:BusImplementation" href="../FlightControl.aadl#FlightControl.i2c.impl"/>
+  </instance:ComponentInstance>
+</xmi:XMI>

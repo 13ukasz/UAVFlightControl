@@ -1,0 +1,24 @@
+package C_Types
+public
+	with Data_Model;
+	
+	data uint8_t
+		properties
+			Data_Model::Data_Representation => Integer;
+			Data_Model::Number_Representation => Unsigned;
+			Data_Size => 2 Bytes;
+	end uint8_t;
+	
+	data uint16_t
+		properties
+			Data_Model::Data_Representation => Integer;
+			Data_Model::Number_Representation => Unsigned;
+			Data_Size => 4 Bytes;
+	end uint16_t;
+	
+	data float
+		properties
+			Data_Model::Data_Representation => Float;
+	end float;
+	
+end C_Types;
