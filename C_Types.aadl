@@ -2,6 +2,11 @@ package C_Types
 public
 	with Data_Model;
 	
+	data bool
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end bool;
+	
 	data uint8_t
 		properties
 			Data_Model::Data_Representation => Integer;

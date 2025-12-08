@@ -5,7 +5,7 @@ public
 	----------------
 	with C_Types;
 	with Data_Model;
-	
+	with Base_Types; 
 	
 	------------
 	--- DATA --- 
@@ -48,12 +48,53 @@ public
 			yaw:   data C_Types::float;
 	end attitude_data.impl;
 	
-	--- MOTOR COMMMAND ---
+	--- MOTOR COMMAND ---
 	data motor_command
 		properties
 			Data_Model::Base_Type => (classifier (C_Types::uint16_t));
 	end motor_command;
+	
+	--- SYSTEM STATUS ---
+	data system_status
+		properties
+			Data_Model::Data_Representation => Struct;
+	end system_status;
+	
+	data implementation system_status.impl
+		subcomponents
+			is_armed: 	 data Base_Types::Boolean;
+			battery_v: 	 data C_Types::float;
+			flight_mode: data C_Types::uint8_t;
+	end system_status.impl;
 
+	-------------------
+	--- BUS TYPES ---
+	-------------------
+	
+	bus i2c
+	end i2c;
+	bus implementation i2c.impl
+	end i2c.impl;
+	
+	bus spi
+	end spi;
+	bus implementation spi.impl
+	end spi.impl;
+	
+	bus uart
+	end uart;
+	bus implementation uart.impl
+	end uart.impl;
+	
+	bus qspi
+	end qspi;
+	bus implementation qspi.impl
+	end qspi.impl;
+	
+	bus pwm
+	end pwm;
+	bus implementation pwm.impl
+	end pwm.impl;
 
 	---------------
 	--- DEVICES ---
@@ -63,22 +104,40 @@ public
 	device IMU
 		features
 			get_imu_data: out data port imu_data;
-			spi_bus: 	  requires bus access spi.impl;
+			spi_bus: 	  requires bus access spi; 
 	end IMU;
 	
 	--- RECEIVER ---
 	device Receiver
 		features
 			rc_data_out: out data port sbus_frame;
-			uart_bus: 	 requires bus access uart.impl;
+			uart_bus: 	 requires bus access uart;
 	end Receiver;
 	
-	--- ESC (ELECTRONIC SPEED CONTROLLER) ---
+	--- BATTERY SENSOR ---
+	device Battery_Sensor
+		features
+			voltage_out: out data port C_Types::float;
+	end Battery_Sensor;
+	
+	--- ESC ---
 	device ESC
 		features
 			pwm_in:  in data port motor_command;
-			pwm_bus: requires bus access pwm.impl;
+			pwm_bus: requires bus access pwm;
 	end ESC;
+	
+	---------------
+	--- MEMORY ---
+	---------------
+	
+	memory External_Flash
+		features
+			qspi_bus: requires bus access qspi; -- Fizyczny komponent wymaga dostępu
+	end External_Flash;
+	
+	memory implementation External_Flash.impl
+	end External_Flash.impl;
 	
 
 	---------------
@@ -101,10 +160,35 @@ public
 			rc_frame_in: 		 in data port sbus_frame;
 			target_attitude_out: out data port attitude_data;
 			throttle_out: 		 out data port C_Types::float;
+			aux_channels_out:	 out data port C_Types::uint16_t;
 	end RC_Handler;
 	
 	thread implementation RC_Handler.impl
 	end RC_Handler.impl;
+	
+	--- BATTERY MONITOR ---
+	thread Battery_Monitor
+		features
+			adc_voltage_in: in data port C_Types::float;
+			vbat_out:		out data port C_Types::float;
+	end Battery_Monitor;
+	
+	thread implementation Battery_Monitor.impl
+	end Battery_Monitor.impl;
+	
+	--- SAFETY MONITOR ---
+	thread Safety_Monitor
+		features
+			throttle_in: 	in data port C_Types::float;
+			aux_in:			in data port C_Types::uint16_t;
+			imu_in:			in data port imu_data;
+			vbat_in:		in data port C_Types::float;
+			
+			system_status_out: out data port system_status;
+	end Safety_Monitor;
+	
+	thread implementation Safety_Monitor.impl
+	end Safety_Monitor.impl;
 	
 	--- ATTITUDE ESTIMATOR ---
 	thread Attitude_Estimator
@@ -119,14 +203,15 @@ public
 	--- PID CONTROLLER ---
 	thread PID_Controller
 		features
-			current_att_in: in data port attitude_data;
-			target_att_in: 	in data port attitude_data;
-			throttle_in: 	in data port C_Types::float;
+			system_status_in: in data port system_status;
+			current_att_in:   in data port attitude_data;
+			target_att_in: 	  in data port attitude_data;
+			throttle_in: 	  in data port C_Types::float;
 			
 			pid_roll_out:   out data port C_Types::float;
 			pid_pitch_out:  out data port C_Types::float;
 			pid_yaw_out:    out data port C_Types::float;
-			throttle_out:   out data port C_Types::float;
+			throttle_mix_out: out data port C_Types::float;
 	end PID_Controller;
 	
 	thread implementation PID_Controller.impl
@@ -135,6 +220,7 @@ public
 	--- MIXER ---
 	thread Motor_Mixer
 		features
+			system_status_in: in data port system_status;
 			pid_roll:  in data port C_Types::float;
 			pid_pitch: in data port C_Types::float;
 			pid_yaw:   in data port C_Types::float;
@@ -149,56 +235,155 @@ public
 	thread implementation Motor_Mixer.impl
 	end Motor_Mixer.impl;
 	
-	
-	-----------------
-	--- PROCESSES ---
-	-----------------
-	
-	process Flight_Software
+	--- BLACKBOX LOGGER ---
+	thread Blackbox_Writer
 		features
-			-- Sprzętowe wejścia do procesu
-			hw_imu_in: in data port imu_data;
-			hw_rc_in: in data port sbus_frame;
-			
-			-- Sprzętowe wyjścia z procesu
-			hw_m1_out: out data port motor_command;
-			hw_m2_out: out data port motor_command;
-			hw_m3_out: out data port motor_command;
-			hw_m4_out: out data port motor_command;
-	end Flight_Software;
+			raw_imu_in:    in data port imu_data;
+			rc_in: 		   in data port sbus_frame;
+			attitude_in:   in data port attitude_data;
+			pid_roll_in:   in data port C_Types::float;
+			motors_in:	   in data port motor_command; 
+	end Blackbox_Writer;
 	
-	process implementation Flight_Software.impl
+	thread implementation Blackbox_Writer.impl
+	end Blackbox_Writer.impl;
+	
+	
+	------------------
+	--- SUBSYSTEMS ---
+	------------------
+	
+	--- SUBSYSTEM 1: DATA ACQUISITION ---
+	process Subsys_Data_Acquisition
+		features
+			hw_imu_in:  in data port imu_data;
+			hw_rc_in:   in data port sbus_frame;
+			hw_vbat_in: in data port C_Types::float;
+			
+			imu_data_out: 	out data port imu_data;
+			rc_target_out: 	out data port attitude_data;
+			rc_throttle_out:out data port C_Types::float;
+			rc_aux_out:		out data port C_Types::uint16_t;
+			vbat_out:		out data port C_Types::float;
+			
+			raw_rc_log_out: out data port sbus_frame;
+	end Subsys_Data_Acquisition;
+	
+	process implementation Subsys_Data_Acquisition.impl
 		subcomponents
-			th_imu: thread IMU_Driver.impl;
-			th_rc: thread RC_Handler.impl;
-			th_est: thread Attitude_Estimator.impl;
-			th_pid: thread PID_Controller.impl;
+			th_imu:  thread IMU_Driver.impl;
+			th_rc:   thread RC_Handler.impl;
+			th_batt: thread Battery_Monitor.impl;
+		connections
+			c_imu_in: port hw_imu_in -> th_imu.imu_raw_in;
+			c_imu_out: port th_imu.imu_filtered_out -> imu_data_out;
+			
+			c_rc_in: port hw_rc_in -> th_rc.rc_frame_in;
+			c_rc_att: port th_rc.target_attitude_out -> rc_target_out;
+			c_rc_thr: port th_rc.throttle_out -> rc_throttle_out;
+			c_rc_aux: port th_rc.aux_channels_out -> rc_aux_out;
+			
+			c_bat_in: port hw_vbat_in -> th_batt.adc_voltage_in;
+			c_bat_out: port th_batt.vbat_out -> vbat_out;
+	end Subsys_Data_Acquisition.impl;
+	
+	--- SUBSYSTEM 2: FLIGHT LOGIC ---
+	process Subsys_Flight_Logic
+		features
+			imu_in: 		in data port imu_data;
+			target_att_in: 	in data port attitude_data;
+			throttle_in: 	in data port C_Types::float;
+			aux_in:			in data port C_Types::uint16_t;
+			vbat_in:		in data port C_Types::float;
+			
+			pid_roll_out: 	out data port C_Types::float;
+			pid_pitch_out: 	out data port C_Types::float;
+			pid_yaw_out: 	out data port C_Types::float;
+			thr_mixed_out: 	out data port C_Types::float;
+			sys_status_out: out data port system_status;
+			
+			att_log_out: 	out data port attitude_data;
+	end Subsys_Flight_Logic;
+	
+	process implementation Subsys_Flight_Logic.impl
+		subcomponents
+			th_est:    thread Attitude_Estimator.impl;
+			th_pid:    thread PID_Controller.impl;
+			th_safety: thread Safety_Monitor.impl;
+		connections
+			c_safe_thr: port throttle_in -> th_safety.throttle_in;
+			c_safe_aux: port aux_in -> th_safety.aux_in;
+			c_safe_imu: port imu_in -> th_safety.imu_in;
+			c_safe_bat: port vbat_in -> th_safety.vbat_in;
+			c_safe_stat: port th_safety.system_status_out -> sys_status_out;
+			c_safe_pid:  port th_safety.system_status_out -> th_pid.system_status_in;
+			
+			c_est_in: port imu_in -> th_est.imu_data_in;
+			c_est_out: port th_est.current_attitude_out -> th_pid.current_att_in;
+			c_est_log: port th_est.current_attitude_out -> att_log_out;
+			
+			c_pid_tar: port target_att_in -> th_pid.target_att_in;
+			c_pid_thr: port throttle_in -> th_pid.throttle_in;
+			
+			c_pid_r: port th_pid.pid_roll_out -> pid_roll_out;
+			c_pid_p: port th_pid.pid_pitch_out -> pid_pitch_out;
+			c_pid_y: port th_pid.pid_yaw_out -> pid_yaw_out;
+			c_pid_t: port th_pid.throttle_mix_out -> thr_mixed_out;
+	end Subsys_Flight_Logic.impl;
+	
+	--- SUBSYSTEM 3: OUTPUT MANAGEMENT ---
+	process Subsys_Output_Management
+		features
+			sys_status_in:  in data port system_status;
+			pid_roll_in:  	in data port C_Types::float;
+			pid_pitch_in: 	in data port C_Types::float;
+			pid_yaw_in:   	in data port C_Types::float;
+			throttle_in:  	in data port C_Types::float;
+			
+			m1_out: out data port motor_command;
+			m2_out: out data port motor_command;
+			m3_out: out data port motor_command;
+			m4_out: out data port motor_command;
+	end Subsys_Output_Management;
+	
+	process implementation Subsys_Output_Management.impl
+		subcomponents
 			th_mix: thread Motor_Mixer.impl;
 		connections
-			-- IMU Flow
-			c1: port hw_imu_in -> th_imu.imu_raw_in;
-			c2: port th_imu.imu_filtered_out -> th_est.imu_data_in;
+			c_stat: port sys_status_in -> th_mix.system_status_in;
+			c_r: port pid_roll_in -> th_mix.pid_roll;
+			c_p: port pid_pitch_in -> th_mix.pid_pitch;
+			c_y: port pid_yaw_in -> th_mix.pid_yaw;
+			c_t: port throttle_in -> th_mix.throttle;
 			
-			-- RC Flow
-			c3: port hw_rc_in -> th_rc.rc_frame_in;
+			c_m1: port th_mix.motor1_out -> m1_out;
+			c_m2: port th_mix.motor2_out -> m2_out;
+			c_m3: port th_mix.motor3_out -> m3_out;
+			c_m4: port th_mix.motor4_out -> m4_out;
+	end Subsys_Output_Management.impl;
+	
+	--- SUBSYSTEM 4: BLACKBOX (POPRAWIONO: usunięto requires bus access) ---
+	process Subsys_Blackbox
+		features
+			-- USUNIĘTO: qspi_bus_access: requires bus access qspi; 
 			
-			-- Control Logic Flow
-			c4: port th_est.current_attitude_out -> th_pid.current_att_in;
-			c5: port th_rc.target_attitude_out -> th_pid.target_att_in;
-			c6: port th_rc.throttle_out -> th_pid.throttle_in;
-			
-			-- PID to Mixer
-			c7: port th_pid.pid_roll_out -> th_mix.pid_roll;
-			c8: port th_pid.pid_pitch_out -> th_mix.pid_pitch;
-			c9: port th_pid.pid_yaw_out -> th_mix.pid_yaw;
-			c10: port th_pid.throttle_out -> th_mix.throttle;
-			
-			-- Mixer to Output
-			c11: port th_mix.motor1_out -> hw_m1_out;
-			c12: port th_mix.motor2_out -> hw_m2_out;
-			c13: port th_mix.motor3_out -> hw_m3_out;
-			c14: port th_mix.motor4_out -> hw_m4_out;
-	end Flight_Software.impl;
+			log_raw_imu: in data port imu_data;
+			log_rc:		 in data port sbus_frame;
+			log_att:	 in data port attitude_data;
+			log_pid_r:	 in data port C_Types::float;
+			log_m1:		 in data port motor_command;
+	end Subsys_Blackbox;
+	
+	process implementation Subsys_Blackbox.impl
+		subcomponents
+			th_logger: thread Blackbox_Writer.impl;
+		connections
+			c_l1: port log_raw_imu -> th_logger.raw_imu_in;
+			c_l2: port log_rc -> th_logger.rc_in;
+			c_l3: port log_att -> th_logger.attitude_in;
+			c_l4: port log_pid_r -> th_logger.pid_roll_in;
+			c_l5: port log_m1 -> th_logger.motors_in;
+	end Subsys_Blackbox.impl;
 	
 	
 	-----------------
@@ -207,142 +392,107 @@ public
 	
 	processor MCU 
 		features
-			i2c_bus:  requires bus access i2c.impl;
-			spi_bus:  requires bus access spi.impl;
-			uart_bus: requires bus access uart.impl;
-			pwm_bus:  requires bus access pwm.impl;
+			i2c_bus:  requires bus access i2c;
+			spi_bus:  requires bus access spi;
+			uart_bus: requires bus access uart;
+			pwm_bus:  requires bus access pwm;
+			qspi_bus: requires bus access qspi;
 	end MCU;
-	
-	---------------------
-	--- PROCESSOR END ---
-	---------------------
-	
-	--------------------
-	--- MEMORY START ---
-	--------------------
-	
-	memory flash
-		features
-			qspi_bus: requires bus access qspi.impl;
-	end flash;
-	
-	memory implementation flash.impl
-	end flash.impl;
-	
-	------------------
-	--- MEMORY END ---
-	------------------
-	
-	-------------------
-	--- BUSES START ---
-	-------------------
-	
-	--- I2C START ---
-	bus i2c
-	end i2c;
-	
-	bus implementation i2c.impl
-	end i2c.impl;
-	--- I2C END ---
-	
-	--- SPI START ---
-	bus spi
-	end spi;
-	
-	bus implementation spi.impl
-	end spi.impl;
-	--- SPI END ---
-	
-	--- UART START ---
-	bus uart
-	end uart;
-	
-	bus implementation uart.impl
-	end uart.impl;
-	--- UART END ---
-	
-	--- QSPI START ---
-	bus qspi
-	end qspi;
-	
-	bus implementation qspi.impl
-	end qspi.impl;
-	--- QSPI END ---
-	
-	--- PWM START ---
-	bus pwm
-	end pwm;
-	
-	bus implementation pwm.impl
-	end pwm.impl;
-	--- PWM END ---
-	
-	-----------------
-	--- BUSES END --- 
-	-----------------
 	
 	--------------------
 	--- SYSTEM START ---
 	--------------------
 	
-	--- FLIGHT CONTROL SYSTEM START ---
-system Quadcopter_FC
+	system Quadcopter_FC
 	end Quadcopter_FC;
 	
 	system implementation Quadcopter_FC.impl
 		subcomponents
-			-- Hardware
+			-- 1. HARDWARE LAYER
 			main_mcu: processor MCU;
-			main_bus_spi: bus spi.impl;
-			main_bus_uart: bus uart.impl;
-			main_bus_pwm: bus pwm.impl;
+			ext_flash_mem: memory External_Flash.impl;
 			
-			acc_gyro_sensor: device IMU;
-			radio_receiver: device Receiver;
+			bus_spi:  bus spi.impl;
+			bus_uart: bus uart.impl;
+			bus_pwm:  bus pwm.impl;
+			bus_qspi: bus qspi.impl;
 			
-			esc_front_left: device ESC;
-			esc_front_right: device ESC;
-			esc_rear_left: device ESC;
-			esc_rear_right: device ESC;
+			sensor_imu:   device IMU;
+			sensor_batt:  device Battery_Sensor;
+			rx_receiver:  device Receiver;
 			
-			-- Software Process
-			fc_process: process Flight_Software.impl;
+			esc_fl: device ESC;
+			esc_fr: device ESC;
+			esc_rl: device ESC;
+			esc_rr: device ESC;
+			
+			-- 2. SOFTWARE LAYER (SUBSYSTEMS)
+			proc_input:  process Subsys_Data_Acquisition.impl;
+			proc_logic:  process Subsys_Flight_Logic.impl;
+			proc_output: process Subsys_Output_Management.impl;
+			proc_logger: process Subsys_Blackbox.impl;
 			
 		connections
-			-- Bus Connections (Hardware Wiring)
-			bus_imu: bus access main_bus_spi -> acc_gyro_sensor.spi_bus;
-			bus_mcu_spi: bus access main_bus_spi <-> main_mcu.spi_bus;
+			--------------------------
+			--- HARDWARE WIRING ---
+			--------------------------
+			conn_mcu_spi:  bus access bus_spi <-> main_mcu.spi_bus;
+			conn_mcu_uart: bus access bus_uart <-> main_mcu.uart_bus;
+			conn_mcu_pwm:  bus access bus_pwm <-> main_mcu.pwm_bus;
+			conn_mcu_qspi: bus access bus_qspi <-> main_mcu.qspi_bus;
 			
-			bus_rc: bus access main_bus_uart -> radio_receiver.uart_bus;
-			bus_mcu_uart: bus access main_bus_uart <-> main_mcu.uart_bus;
+			conn_imu_spi:  bus access bus_spi -> sensor_imu.spi_bus;
+			conn_rx_uart:  bus access bus_uart -> rx_receiver.uart_bus;
 			
-			bus_pwm_mcu: bus access main_bus_pwm <-> main_mcu.pwm_bus;
-			bus_esc1: bus access main_bus_pwm -> esc_front_left.pwm_bus;
-			bus_esc2: bus access main_bus_pwm -> esc_front_right.pwm_bus;
-			bus_esc3: bus access main_bus_pwm -> esc_rear_left.pwm_bus;
-			bus_esc4: bus access main_bus_pwm -> esc_rear_right.pwm_bus;
+			-- Poprawne połączenie magistrali z pamięcią
+			conn_fl_qspi:  bus access bus_qspi -> ext_flash_mem.qspi_bus; 
 			
-			-- Data Flow Connections (Device <-> Software)
-			data_imu: port acc_gyro_sensor.get_imu_data -> fc_process.hw_imu_in;
-			data_rc: port radio_receiver.rc_data_out -> fc_process.hw_rc_in;
+			conn_esc1: bus access bus_pwm -> esc_fl.pwm_bus;
+			conn_esc2: bus access bus_pwm -> esc_fr.pwm_bus;
+			conn_esc3: bus access bus_pwm -> esc_rl.pwm_bus;
+			conn_esc4: bus access bus_pwm -> esc_rr.pwm_bus;
 			
-			data_m1: port fc_process.hw_m1_out -> esc_front_left.pwm_in;
-			data_m2: port fc_process.hw_m2_out -> esc_front_right.pwm_in;
-			data_m3: port fc_process.hw_m3_out -> esc_rear_left.pwm_in;
-			data_m4: port fc_process.hw_m4_out -> esc_rear_right.pwm_in;
+			-- USUNIĘTO: conn_log_flash: bus access bus_qspi -> proc_logger.qspi_bus_access;
 			
+			----------------------------
+			--- DATA FLOW (SW <-> HW) ---
+			----------------------------
+			df_imu:  port sensor_imu.get_imu_data -> proc_input.hw_imu_in;
+			df_rx:   port rx_receiver.rc_data_out -> proc_input.hw_rc_in;
+			df_bat:  port sensor_batt.voltage_out -> proc_input.hw_vbat_in;
+			
+			df_m1: port proc_output.m1_out -> esc_fl.pwm_in;
+			df_m2: port proc_output.m2_out -> esc_fr.pwm_in;
+			df_m3: port proc_output.m3_out -> esc_rl.pwm_in;
+			df_m4: port proc_output.m4_out -> esc_rr.pwm_in;
+			
+			------------------------------------
+			--- DATA FLOW (BETWEEN SUBSYSTEMS) ---
+			------------------------------------
+			sf_imu:  port proc_input.imu_data_out -> proc_logic.imu_in;
+			sf_att:  port proc_input.rc_target_out -> proc_logic.target_att_in;
+			sf_thr:  port proc_input.rc_throttle_out -> proc_logic.throttle_in;
+			sf_aux:  port proc_input.rc_aux_out -> proc_logic.aux_in;
+			sf_bat:  port proc_input.vbat_out -> proc_logic.vbat_in;
+			
+			sf_stat: port proc_logic.sys_status_out -> proc_output.sys_status_in;
+			sf_pr:   port proc_logic.pid_roll_out -> proc_output.pid_roll_in;
+			sf_pp:   port proc_logic.pid_pitch_out -> proc_output.pid_pitch_in;
+			sf_py:   port proc_logic.pid_yaw_out -> proc_output.pid_yaw_in;
+			sf_pt:   port proc_logic.thr_mixed_out -> proc_output.throttle_in;
+			
+			log_1: port proc_input.imu_data_out -> proc_logger.log_raw_imu;
+			log_2: port proc_input.raw_rc_log_out -> proc_logger.log_rc;
+			log_3: port proc_logic.att_log_out -> proc_logger.log_att;
+			log_4: port proc_logic.pid_roll_out -> proc_logger.log_pid_r;
+			log_5: port proc_output.m1_out -> proc_logger.log_m1;
+
 		properties
-			-- Bind software process to hardware processor
-			Actual_Processor_Binding => (reference(main_mcu)) applies to fc_process;
-			
-			-- Bind connections to buses (przykłady)
-			Actual_Connection_Binding => (reference(main_bus_spi)) applies to data_imu;
-			Actual_Connection_Binding => (reference(main_bus_uart)) applies to data_rc;
+			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_input;
+			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_logic;
+			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_output;
+			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_logger;
 			
 	end Quadcopter_FC.impl;
-	--- FLIGHT CONTROL SYSTEM END ---
 	
-	------------------
-	--- SYSTEM END ---
-	------------------
 end FlightControl;
