@@ -1,17 +1,10 @@
-package FlightControl
+package FlightControl_analysis
 public
-	----------------
-	--- INCLUDES ---
-	----------------
 	with C_Types;
 	with Data_Model;
 	with Base_Types; 
+	with sei;
 	
-	------------
-	--- DATA --- 
-	------------
-	
-	-- IMU DATA
 	data imu_data
 		properties
 			Data_Model::Data_Representation => Struct;
@@ -27,7 +20,6 @@ public
 			gyro_z: data C_Types::uint16_t;
 	end imu_data.impl;
 
-	-- RC IN
 	data sbus_frame
 		properties
 			Data_Model::Base_Type => (classifier (C_Types::uint8_t));
@@ -35,7 +27,6 @@ public
 			Data_Model::Dimension => (25);
 	end sbus_frame;
 
-	-- ATTITUDE DATA
 	data attitude_data
 		properties
 			Data_Model::Data_Representation => Struct;
@@ -48,19 +39,16 @@ public
 			yaw:   data C_Types::float;
 	end attitude_data.impl;
 	
-	-- MOTOR COMMAND
 	data motor_command
 		properties
 			Data_Model::Base_Type => (classifier (C_Types::uint16_t));
 	end motor_command;
 	
-	-- FLIGHT MODE
 	data flight_mode_type
 		properties
 			Data_Model::Base_Type => (classifier (C_Types::uint8_t));
 	end flight_mode_type;
 	
-	-- SYSTEM STATUS
 	data system_status
 		properties
 			Data_Model::Data_Representation => Struct;
@@ -73,7 +61,6 @@ public
 			flight_mode: data flight_mode_type;
 	end system_status.impl;
 	
-	-- TELEMETRY DATA
 	data telemetry_data
 		properties
 			Data_Model::Data_Representation => Struct;
@@ -87,86 +74,93 @@ public
 			pitch: data C_Types::float;
 	end telemetry_data.impl;
 
-	-------------------
-	--- BUS TYPES ---
-	-------------------
-	
 	bus spi
 	end spi;
 	bus implementation spi.impl
+		properties
+			SEI::BandWidthCapacity => 10.0 MBytesps;
+			SEI::BandWidthBudget => 2.0 MBytesps;
 	end spi.impl;
 	
 	bus uart
 	end uart;
 	bus implementation uart.impl
+		properties
+			SEI::BandWidthCapacity => 115.2 KBytesps;
+			SEI::BandWidthBudget => 100.0 KBytesps;
 	end uart.impl;
 	
 	bus qspi
 	end qspi;
 	bus implementation qspi.impl
+		properties
+			SEI::BandWidthCapacity => 50.0 MBytesps;
+			SEI::BandWidthBudget => 10.0 MBytesps;
 	end qspi.impl;
 	
 	bus pwm
 	end pwm;
 	bus implementation pwm.impl
+		properties
+			SEI::BandWidthCapacity => 10.0 KBytesps;
+			SEI::BandWidthBudget => 5.0 KBytesps;
 	end pwm.impl;
-
-	---------------
-	--- DEVICES ---
-	---------------
 	
-	-- IMU
 	device IMU
 		features
 			get_imu_data: out data port imu_data;
-			spi_bus: 	  requires bus access spi; 
+			spi_bus: 	  requires bus access spi;
+		properties
+			SEI::GrossWeight => 0.003 kg;
+		 	SEI::WeightLimit => 0.01 kg;  
 	end IMU;
 	
-	-- RECEIVER
 	device Receiver
 		features
 			rc_data_out: out data port sbus_frame;
 			uart_bus: 	 requires bus access uart;
+		properties
+			SEI::GrossWeight => 0.01 kg;
+		 	SEI::WeightLimit => 0.02 kg;  
 	end Receiver;
 	
-	-- BATTERY SENSOR
 	device Battery_Sensor
 		features
 			voltage_out: out data port C_Types::float;
+		properties
+			SEI::GrossWeight => 0.0 kg;
+		 	SEI::WeightLimit => 0.005 kg;  
 	end Battery_Sensor;
 	
-	-- TELEMETRY TX
 	device Telemetry_Transmitter
 		features
 			telemetry_in: in data port telemetry_data;
 			uart_bus: requires bus access uart;
+		properties
+			SEI::GrossWeight => 0.02 kg;
+		 	SEI::WeightLimit => 0.05 kg;  
 	end Telemetry_Transmitter;
 	
-	-- ESC
 	device ESC
 		features
 			pwm_in:  in data port motor_command;
 			pwm_bus: requires bus access pwm;
+		properties
+			SEI::GrossWeight => 0.05 kg;
+		 	SEI::WeightLimit => 0.1 kg;  
 	end ESC;
-	
-	---------------
-	--- MEMORY ---
-	---------------
 	
 	memory External_Flash
 		features
 			qspi_bus: requires bus access qspi; 
+		properties
+			SEI::GrossWeight => 0.001 kg;
+		 	SEI::WeightLimit => 0.005 kg;  
 	end External_Flash;
 	
 	memory implementation External_Flash.impl
 	end External_Flash.impl;
 	
-
-	---------------
-	--- THREADS ---
-	---------------
-	
-	-- IMU DRIVER
 	thread IMU_Driver
 		features
 			imu_raw_in: 	  in data port imu_data;
@@ -174,9 +168,12 @@ public
 	end IMU_Driver;
 	
 	thread implementation IMU_Driver.impl
+		properties
+			Period => 5 ms;
+			Deadline => 5 ms; 
+			Compute_Execution_Time => 100 us .. 300 us;
 	end IMU_Driver.impl;
 	
-	-- RC HANDLER
 	thread RC_Handler
 		features
 			rc_frame_in: 		 in data port sbus_frame;
@@ -186,9 +183,12 @@ public
 	end RC_Handler;
 	
 	thread implementation RC_Handler.impl
+		properties
+			Period => 10 ms;
+			Deadline => 10 ms;
+			Compute_Execution_Time => 100 us .. 300 us;
 	end RC_Handler.impl;
 	
-	-- BATTERY MONITOR
 	thread Battery_Monitor
 		features
 			adc_voltage_in: in data port C_Types::float;
@@ -196,9 +196,12 @@ public
 	end Battery_Monitor;
 	
 	thread implementation Battery_Monitor.impl
+		properties
+			Period => 500 ms;
+			Deadline => 500 ms;
+			Compute_Execution_Time => 100 us .. 300 us;
 	end Battery_Monitor.impl;
 	
-	-- FLIGHT MODE MANAGER
 	thread Flight_Mode_Manager
 		features
 			aux_channels_in: in data port C_Types::uint16_t;
@@ -208,9 +211,12 @@ public
 	end Flight_Mode_Manager;
 	
 	thread implementation Flight_Mode_Manager.impl
+		properties
+			Period => 10 ms;
+			Deadline => 10 ms;
+			Compute_Execution_Time => 100 us .. 300 us;
 	end Flight_Mode_Manager.impl;
 	
-	-- SAFETY MONITOR
 	thread Safety_Monitor
 		features
 			throttle_in: 	in data port C_Types::float;
@@ -222,9 +228,12 @@ public
 	end Safety_Monitor;
 	
 	thread implementation Safety_Monitor.impl
+		properties
+			Period => 20 ms;
+			Deadline => 20 ms;
+			Compute_Execution_Time => 100 us .. 500 us;
 	end Safety_Monitor.impl;
 	
-	-- ATTITUDE ESTIMATOR
 	thread Attitude_Estimator
 		features
 			imu_data_in: 		  in data port imu_data;
@@ -232,9 +241,12 @@ public
 	end Attitude_Estimator;
 	
 	thread implementation Attitude_Estimator.impl
+		properties
+			Period => 5 ms;
+			Deadline => 5 ms;
+			Compute_Execution_Time => 500 us .. 1000 us;
 	end Attitude_Estimator.impl;
 	
-	-- PID CONTROLLER
 	thread PID_Controller
 		features
 			system_status_in: in data port system_status;
@@ -249,9 +261,12 @@ public
 	end PID_Controller;
 	
 	thread implementation PID_Controller.impl
+		properties
+			Period => 5 ms;
+			Deadline => 5 ms;
+			Compute_Execution_Time => 500 us .. 1000 us;
 	end PID_Controller.impl;
 	
-	-- MIXER
 	thread Motor_Mixer
 		features
 			system_status_in: in data port system_status;
@@ -267,9 +282,12 @@ public
 	end Motor_Mixer;
 	
 	thread implementation Motor_Mixer.impl
+		properties
+			Period => 5 ms;
+			Deadline => 5 ms;
+			Compute_Execution_Time => 100 us .. 300 us;
 	end Motor_Mixer.impl;
 	
-	-- TELEMETRY MANAGER
 	thread Telemetry_Manager
 		features
 			vbat_in: in data port C_Types::float;
@@ -280,9 +298,12 @@ public
 	end Telemetry_Manager;
 	
 	thread implementation Telemetry_Manager.impl
+		properties
+			Period => 100 ms;
+			Deadline => 100 ms;
+			Compute_Execution_Time => 1 ms .. 2 ms;
 	end Telemetry_Manager.impl;
 	
-	-- BLACKBOX LOGGER
 	thread Blackbox_Writer
 		features
 			raw_imu_in:    in data port imu_data;
@@ -293,14 +314,13 @@ public
 	end Blackbox_Writer;
 	
 	thread implementation Blackbox_Writer.impl
+		properties
+			Period => 10 ms;
+			Deadline => 10 ms;
+			Compute_Execution_Time => 500 us .. 1 ms;
 	end Blackbox_Writer.impl;
 	
 	
-	------------------
-	--- SUBSYSTEMS ---
-	------------------
-	
-	-- SUBSYSTEM 1: DATA ACQUISITION
 	process Subsys_Data_Acquisition
 		features
 			hw_imu_in:  in data port imu_data;
@@ -334,7 +354,6 @@ public
 			c_bat_out: port th_batt.vbat_out -> vbat_out;
 	end Subsys_Data_Acquisition.impl;
 	
-	-- SUBSYSTEM 2: FLIGHT LOGIC
 	process Subsys_Flight_Logic
 		features
 			imu_in: 		in data port imu_data;
@@ -362,26 +381,22 @@ public
 			th_safety: thread Safety_Monitor.impl;
 			th_fmm:    thread Flight_Mode_Manager.impl;
 		connections
-			-- FLIGHT MODE MANAGER
 			c_aux_fmm: port aux_in -> th_fmm.aux_channels_in;
 			c_safety_stat_fmm: port th_safety.system_status_out -> th_fmm.system_status_in; 
 			c_fmm_mode: port th_fmm.current_mode_out -> th_safety.current_mode_in; 
 			c_fmm_mode_out: port th_fmm.current_mode_out -> mode_out; 
 
-			-- SAFETY MONITOR (Status)
 			c_safe_thr: port throttle_in -> th_safety.throttle_in;
 			c_safe_imu: port imu_in -> th_safety.imu_in;
 			c_safe_bat: port vbat_in -> th_safety.vbat_in;
 			c_safe_stat: port th_safety.system_status_out -> sys_status_out;
 			c_safe_pid:  port th_safety.system_status_out -> th_pid.system_status_in;
 			
-			-- ESTIMATION
 			c_est_in: port imu_in -> th_est.imu_data_in;
 			c_est_out: port th_est.current_attitude_out -> th_pid.current_att_in;
 			c_est_log: port th_est.current_attitude_out -> att_log_out;
 			c_est_tele: port th_est.current_attitude_out -> att_tele_out; 
 			
-			-- PID
 			c_pid_tar: port target_att_in -> th_pid.target_att_in;
 			c_pid_thr: port throttle_in -> th_pid.throttle_in;
 			
@@ -389,9 +404,11 @@ public
 			c_pid_p: port th_pid.pid_pitch_out -> pid_pitch_out;
 			c_pid_y: port th_pid.pid_yaw_out -> pid_yaw_out;
 			c_pid_t: port th_pid.throttle_mix_out -> thr_mixed_out;
+			
+		properties
+			SEI::MIPSBudget => 80.0 MIPS;
 	end Subsys_Flight_Logic.impl;
 	
-	-- SUBSYSTEM 3: OUTPUT MANAGEMENT
 	process Subsys_Output_Management
 		features
 			sys_status_in:  in data port system_status;
@@ -416,7 +433,6 @@ public
 			th_mix: thread Motor_Mixer.impl;
 			th_tele: thread Telemetry_Manager.impl;
 		connections
-			-- MIXER
 			c_stat: port sys_status_in -> th_mix.system_status_in;
 			c_r: port pid_roll_in -> th_mix.pid_roll;
 			c_p: port pid_pitch_in -> th_mix.pid_pitch;
@@ -428,7 +444,6 @@ public
 			c_m3: port th_mix.motor3_out -> m3_out;
 			c_m4: port th_mix.motor4_out -> m4_out;
 			
-			-- TELEMETRY MANAGER
 			c_tele_vbat: port vbat_in -> th_tele.vbat_in;
 			c_tele_rssi: port rc_aux_in -> th_tele.rssi_in;
 			c_tele_att: port attitude_in -> th_tele.attitude_in;
@@ -436,7 +451,6 @@ public
 			
 	end Subsys_Output_Management.impl;
 	
-	-- SUBSYSTEM 4: BLACKBOX
 	process Subsys_Blackbox
 		features
 			log_raw_imu: in data port imu_data;
@@ -458,28 +472,28 @@ public
 	end Subsys_Blackbox.impl;
 	
 	
-	-----------------
-	--- PROCESSOR ---
-	-----------------
-	
 	processor MCU 
 		features
 			spi_bus:  requires bus access spi;
 			uart_bus: requires bus access uart;
 			pwm_bus:  requires bus access pwm;
 			qspi_bus: requires bus access qspi;
+		properties 
+			Timing_Properties::Processor_Capacity => 480.0 MIPS; 
+			Scheduling_Protocol => (Cooperative);
+			Clock_Period => 1 us;
+			SEI::GrossWeight => 0.001 kg;
+		 	SEI::WeightLimit => 0.005 kg;  
 	end MCU;
 	
-	--------------------
-	--- SYSTEM START ---
-	--------------------
+	system Quadcopter_FC_analysis
+		properties
+			SEI::WeightLimit => 3.0 kg;
+			SEI::GrossWeight => 0.9 kg;
+	end Quadcopter_FC_analysis;
 	
-	system Quadcopter_FC
-	end Quadcopter_FC;
-	
-	system implementation Quadcopter_FC.impl
+	system implementation Quadcopter_FC_analysis.impl
 		subcomponents
-			-- HARDWARE LAYER
 			main_mcu: processor MCU;
 			ext_flash_mem: memory External_Flash.impl;
 			
@@ -498,16 +512,12 @@ public
 			esc_rl: device ESC;
 			esc_rr: device ESC;
 			
-			-- SOFTWARE LAYER (SUBSYSTEMS)
 			proc_input:  process Subsys_Data_Acquisition.impl;
 			proc_logic:  process Subsys_Flight_Logic.impl;
 			proc_output: process Subsys_Output_Management.impl;
 			proc_logger: process Subsys_Blackbox.impl;
 			
 		connections
-			--------------------------
-			--- HARDWARE WIRING ---
-			--------------------------
 			conn_mcu_spi:  bus access bus_spi <-> main_mcu.spi_bus;
 			conn_mcu_uart: bus access bus_uart <-> main_mcu.uart_bus;
 			conn_mcu_pwm:  bus access bus_pwm <-> main_mcu.pwm_bus;
@@ -524,9 +534,6 @@ public
 			conn_esc3: bus access bus_pwm -> esc_rl.pwm_bus;
 			conn_esc4: bus access bus_pwm -> esc_rr.pwm_bus;
 			
-			----------------------------
-			--- DATA FLOW (SW <-> HW) ---
-			----------------------------
 			df_imu:  port sensor_imu.get_imu_data -> proc_input.hw_imu_in;
 			df_rx:   port rx_receiver.rc_data_out -> proc_input.hw_rc_in;
 			df_bat:  port sensor_batt.voltage_out -> proc_input.hw_vbat_in;
@@ -538,29 +545,22 @@ public
 			df_m3: port proc_output.m3_out -> esc_rl.pwm_in;
 			df_m4: port proc_output.m4_out -> esc_rr.pwm_in;
 			
-			------------------------------------
-			--- DATA FLOW (SUBSYSTEM TO SUBSYSTEM) ---
-			------------------------------------
-			-- Data Acquisition to Flight Logic
 			sf_imu:  port proc_input.imu_data_out -> proc_logic.imu_in;
 			sf_att:  port proc_input.rc_target_out -> proc_logic.target_att_in;
 			sf_thr:  port proc_input.rc_throttle_out -> proc_logic.throttle_in;
 			sf_aux:  port proc_input.rc_aux_out -> proc_logic.aux_in;
 			sf_bat:  port proc_input.vbat_out -> proc_logic.vbat_in;
 			
-			-- Flight Logic to Output Management
 			sf_stat: port proc_logic.sys_status_out -> proc_output.sys_status_in;
 			sf_pr:   port proc_logic.pid_roll_out -> proc_output.pid_roll_in;
 			sf_pp:   port proc_logic.pid_pitch_out -> proc_output.pid_pitch_in;
 			sf_py:   port proc_logic.pid_yaw_out -> proc_output.pid_yaw_in;
 			sf_pt:   port proc_logic.thr_mixed_out -> proc_output.throttle_in;
 			
-			-- Data for Telemetry & Logging
 			tele_vbat: port proc_input.vbat_out -> proc_output.vbat_in;
 			tele_rssi: port proc_input.rc_aux_out -> proc_output.rc_aux_in;
 			tele_att: port proc_logic.att_tele_out -> proc_output.attitude_in;
 			
-			-- Logging
 			log_1: port proc_input.imu_data_out -> proc_logger.log_raw_imu;
 			log_2: port proc_input.raw_rc_log_out -> proc_logger.log_rc;
 			log_3: port proc_logic.att_log_out -> proc_logger.log_att;
@@ -573,6 +573,6 @@ public
 			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_output;
 			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_logger;
 			
-	end Quadcopter_FC.impl;
+	end Quadcopter_FC_analysis.impl;
 	
-end FlightControl;
+end FlightControl_analysis;

@@ -1,0 +1,29 @@
+Weight totals Report
+
+bus_spi: [A] Net Weight is 0.000 kg
+bus_uart: [A] Net Weight is 0.000 kg
+bus_pwm: [A] Net Weight is 0.000 kg
+bus_qspi: [A] Net Weight is 0.000 kg
+sensor_imu: [A] Sum of weights (0.003 kg) is below weight limit of 0.010 kg (70.0 % Weight slack)
+sensor_imu: [A] Net Weight is 0.000 kg
+sensor_batt: [A] Sum of weights (0.000 kg) is below weight limit of 0.005 kg (100.0 % Weight slack)
+sensor_batt: [A] Net Weight is 0.000 kg
+rx_receiver: [A] Sum of weights (0.010 kg) is below weight limit of 0.020 kg (50.0 % Weight slack)
+rx_receiver: [A] Net Weight is 0.000 kg
+telemetry_tx: [A] Sum of weights (0.020 kg) is below weight limit of 0.050 kg (60.0 % Weight slack)
+telemetry_tx: [A] Net Weight is 0.000 kg
+esc_fl: [A] Sum of weights (0.050 kg) is below weight limit of 0.100 kg (50.0 % Weight slack)
+esc_fl: [A] Net Weight is 0.000 kg
+esc_fr: [A] Sum of weights (0.050 kg) is below weight limit of 0.100 kg (50.0 % Weight slack)
+esc_fr: [A] Net Weight is 0.000 kg
+esc_rl: [A] Sum of weights (0.050 kg) is below weight limit of 0.100 kg (50.0 % Weight slack)
+esc_rl: [A] Net Weight is 0.000 kg
+esc_rr: [A] Sum of weights (0.050 kg) is below weight limit of 0.100 kg (50.0 % Weight slack)
+esc_rr: [A] Net Weight is 0.000 kg
+ext_flash_mem: [A] Sum of weights (0.001 kg) is below weight limit of 0.005 kg (80.0 % Weight slack)
+ext_flash_mem: [A] Net Weight is 0.000 kg
+main_mcu: [A] Sum of weights (0.001 kg) is below weight limit of 0.005 kg (80.0 % Weight slack)
+main_mcu: [A] Net Weight is 0.000 kg
+Warning! Quadcopter_FC_analysis_impl_Instance: [G] Sum of weights (0.235 kg) less than gross weight of 0.900 kg (using gross weight)
+Quadcopter_FC_analysis_impl_Instance: [A] Sum of weights (0.900 kg) is below weight limit of 3.000 kg (70.0 % Weight slack)
+Quadcopter_FC_analysis_impl_Instance: [A] Net Weight is 0.000 kg

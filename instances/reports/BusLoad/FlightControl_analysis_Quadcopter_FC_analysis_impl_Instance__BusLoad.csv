@@ -1,0 +1,50 @@
+Bus load analysis of Quadcopter_FC_analysis_impl_Instance
+
+
+"Physical Bus","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"bus_spi","10000.0","2000.0","0.0","0.0"
+"bus_uart","115.2","100.0","0.0","0.0"
+"bus_pwm","10.0","5.0","0.0","0.0"
+"bus_qspi","50000.0","10000.0","0.0","0.0"
+
+"Bus bus_spi has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"sensor_imu.get_imu_data -> proc_input.th_imu.imu_raw_in","","0.0","","0.0"
+
+"Connection sensor_imu.get_imu_data -> proc_input.th_imu.imu_raw_in bound to bus_spi"
+"WARNING: Connection sensor_imu.get_imu_data -> proc_input.th_imu.imu_raw_in has no bandwidth budget"
+
+"Bus bus_uart has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"rx_receiver.rc_data_out -> proc_input.th_rc.rc_frame_in","","0.0","","0.0"
+"proc_output.th_tele.telemetry_out -> telemetry_tx.telemetry_in","","0.0","","0.0"
+
+"Connection rx_receiver.rc_data_out -> proc_input.th_rc.rc_frame_in bound to bus_uart"
+"WARNING: Connection rx_receiver.rc_data_out -> proc_input.th_rc.rc_frame_in has no bandwidth budget"
+
+"Connection proc_output.th_tele.telemetry_out -> telemetry_tx.telemetry_in bound to bus_uart"
+"WARNING: Connection proc_output.th_tele.telemetry_out -> telemetry_tx.telemetry_in has no bandwidth budget"
+
+"Bus bus_pwm has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"proc_output.th_mix.motor1_out -> esc_fl.pwm_in","","0.0","","0.0"
+"proc_output.th_mix.motor2_out -> esc_fr.pwm_in","","0.0","","0.0"
+"proc_output.th_mix.motor3_out -> esc_rl.pwm_in","","0.0","","0.0"
+"proc_output.th_mix.motor4_out -> esc_rr.pwm_in","","0.0","","0.0"
+
+"Connection proc_output.th_mix.motor1_out -> esc_fl.pwm_in bound to bus_pwm"
+"WARNING: Connection proc_output.th_mix.motor1_out -> esc_fl.pwm_in has no bandwidth budget"
+
+"Connection proc_output.th_mix.motor2_out -> esc_fr.pwm_in bound to bus_pwm"
+"WARNING: Connection proc_output.th_mix.motor2_out -> esc_fr.pwm_in has no bandwidth budget"
+
+"Connection proc_output.th_mix.motor3_out -> esc_rl.pwm_in bound to bus_pwm"
+"WARNING: Connection proc_output.th_mix.motor3_out -> esc_rl.pwm_in has no bandwidth budget"
+
+"Connection proc_output.th_mix.motor4_out -> esc_rr.pwm_in bound to bus_pwm"
+"WARNING: Connection proc_output.th_mix.motor4_out -> esc_rr.pwm_in has no bandwidth budget"
+
+"Bus bus_qspi has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+

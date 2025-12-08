@@ -1,0 +1,42 @@
+Not Bound Resource Budget Analysis Report
+
+Resource Summary: 
+  MIPS capacity 480.000 MIPS : MIPS budget 348.288 MIPS
+  1 out of 1 with MIPS capacity
+  14 out of 14 with MIPS budget
+
+
+
+Detailed Processor MIPS Capacity Report 
+
+Component,Capacity
+processor main_mcu, 480.000 MIPS,
+Total, 480.000 MIPS,
+
+
+Detailed MIPS Budget Report 
+
+Component,Budget,Actual,Notes
+device sensor_imu, 0.000 MIPS,0.000 MIPS,
+device sensor_batt, 0.000 MIPS,0.000 MIPS,
+device rx_receiver, 0.000 MIPS,0.000 MIPS,
+device telemetry_tx, 0.000 MIPS,0.000 MIPS,
+device esc_fl, 0.000 MIPS,0.000 MIPS,
+device esc_fr, 0.000 MIPS,0.000 MIPS,
+device esc_rl, 0.000 MIPS,0.000 MIPS,
+device esc_rr, 0.000 MIPS,0.000 MIPS,
+  thread proc_input.th_imu,   0.000 MIPS,  28.800 MIPS,
+  thread proc_input.th_rc,   0.000 MIPS,  14.400 MIPS,
+  thread proc_input.th_batt,   0.000 MIPS,  0.288 MIPS,
+process proc_input, 0.000 MIPS,43.488 MIPS,
+  thread proc_logic.th_est,   0.000 MIPS,  96.000 MIPS,
+  thread proc_logic.th_pid,   0.000 MIPS,  96.000 MIPS,
+  thread proc_logic.th_safety,   0.000 MIPS,  12.000 MIPS,
+  thread proc_logic.th_fmm,   0.000 MIPS,  14.400 MIPS,
+process proc_logic, 80.000 MIPS,218.400 MIPS,Error: subtotal/actual exceeds budget 80.000 by 138.400 MIPS
+  thread proc_output.th_mix,   0.000 MIPS,  28.800 MIPS,
+  thread proc_output.th_tele,   0.000 MIPS,  9.600 MIPS,
+process proc_output, 0.000 MIPS,38.400 MIPS,
+  thread proc_logger.th_logger,   0.000 MIPS,  48.000 MIPS,
+process proc_logger, 0.000 MIPS,48.000 MIPS,
+Total, ,348.288 MIPS,

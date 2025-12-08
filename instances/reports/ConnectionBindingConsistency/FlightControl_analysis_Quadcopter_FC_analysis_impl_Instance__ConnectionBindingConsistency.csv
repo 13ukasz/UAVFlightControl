@@ -1,0 +1,27 @@
+Check connection binding consistency Report
+
+ERROR:  th_est.current_attitude_out -> th_pid.current_att_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  th_safety.system_status_out -> th_fmm.system_status_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  th_safety.system_status_out -> th_pid.system_status_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  th_fmm.current_mode_out -> th_safety.current_mode_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  sensor_batt.voltage_out -> proc_input.th_batt.adc_voltage_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.raw_rc_log_out -> proc_logger.th_logger.rc_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_imu.imu_filtered_out -> proc_logic.th_safety.imu_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_imu.imu_filtered_out -> proc_logic.th_est.imu_data_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_imu.imu_filtered_out -> proc_logger.th_logger.raw_imu_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_rc.target_attitude_out -> proc_logic.th_pid.target_att_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_rc.throttle_out -> proc_logic.th_safety.throttle_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_rc.throttle_out -> proc_logic.th_pid.throttle_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_rc.aux_channels_out -> proc_logic.th_fmm.aux_channels_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_rc.aux_channels_out -> proc_output.th_tele.rssi_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_batt.vbat_out -> proc_logic.th_safety.vbat_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_input.th_batt.vbat_out -> proc_output.th_tele.vbat_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_est.current_attitude_out -> proc_logger.th_logger.attitude_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_est.current_attitude_out -> proc_output.th_tele.attitude_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_pid.pid_roll_out -> proc_output.th_mix.pid_roll: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_pid.pid_roll_out -> proc_logger.th_logger.pid_roll_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_pid.pid_pitch_out -> proc_output.th_mix.pid_pitch: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_pid.pid_yaw_out -> proc_output.th_mix.pid_yaw: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_pid.throttle_mix_out -> proc_output.th_mix.throttle: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_logic.th_safety.system_status_out -> proc_output.th_mix.system_status_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  proc_output.th_mix.motor1_out -> proc_logger.th_logger.motors_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
