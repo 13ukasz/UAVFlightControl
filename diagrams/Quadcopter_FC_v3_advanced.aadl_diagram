@@ -1,0 +1,2115 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="4f2609fb-787b-4385-be15-5dc06a28286e" manual="true">
+    <element uuid="b2c73e13-087d-4e33-b350-abfe6ee2a8b3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>bus_pwm</seg>
+      </bo>
+      <position x="1550.0" y="1050.0"/>
+      <size width="112.0" height="70.0"/>
+    </element>
+    <element uuid="c29ed0c6-75a8-4cee-9b8a-15583360b108" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>bus_qspi</seg>
+      </bo>
+      <position x="550.0" y="770.0"/>
+      <size width="107.0" height="60.0"/>
+    </element>
+    <element uuid="94675f80-e613-4389-b0a8-5ff1f38bb332" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>bus_spi</seg>
+      </bo>
+      <position x="550.0" y="330.0"/>
+      <size width="99.0" height="40.0"/>
+    </element>
+    <element uuid="0b21dee9-c331-4199-a99b-061cb89cc6e3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>bus_uart</seg>
+      </bo>
+      <position x="550.0" y="620.0"/>
+      <size width="110.0" height="45.0"/>
+    </element>
+    <element uuid="a704ae17-5b66-4350-8a1a-db91c3c37348" manual="true">
+      <element uuid="808690f2-95c3-44c6-a6d8-8d691afdb790" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_bus</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="4a76cbba-6a46-4f39-81af-647bd77730c9" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_in</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>esc_fl</seg>
+      </bo>
+      <position x="5090.0" y="310.0"/>
+      <size width="230.0" height="118.0"/>
+    </element>
+    <element uuid="da72d9b4-0759-439d-abef-a8cf141733c1" manual="true">
+      <element uuid="b3910d38-d1f1-41c1-a49a-fc129f190d1c" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_bus</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="c576195f-1c32-4179-9410-e69570445ca1" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_in</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>esc_fr</seg>
+      </bo>
+      <position x="5090.0" y="440.0"/>
+      <size width="232.0" height="118.0"/>
+    </element>
+    <element uuid="a01982d4-fc46-40cb-b2c6-6f97f881de8d" manual="true">
+      <element uuid="1b7a9412-5a6e-4336-9e1e-eb1398c8217b" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_bus</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="293ee67a-6b04-4dcb-9983-707c7fea1826" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_in</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>esc_rl</seg>
+      </bo>
+      <position x="5090.0" y="570.0"/>
+      <size width="231.0" height="118.0"/>
+    </element>
+    <element uuid="3e15cd8b-fa41-44f0-be71-05607d056a9a" manual="true">
+      <element uuid="1260945e-d836-497d-a28f-e4e5e4d8025b" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_bus</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="e72f0059-3b2b-4081-a10a-6e48ab31ffaa" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_in</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>esc_rr</seg>
+      </bo>
+      <position x="5090.0" y="700.0"/>
+      <size width="233.0" height="118.0"/>
+    </element>
+    <element uuid="cafef0f2-78b7-4758-a826-f9fd7b0ac70a" manual="true">
+      <element uuid="e89c9ba4-1e74-477a-b62c-4be69b15541d" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>qspi_bus</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>ext_flash_mem</seg>
+      </bo>
+      <position x="780.0" y="750.0"/>
+      <size width="280.0" height="64.0"/>
+    </element>
+    <element uuid="48879797-ddf9-4c3b-8a2a-1dd729a52d99" manual="true">
+      <element uuid="f0fb0183-ddaa-48ef-94c8-da980d6ce3d4" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>pwm_bus</seg>
+        </bo>
+        <position y="118.0"/>
+      </element>
+      <element uuid="a275eeea-9e2e-4d41-9999-f3c4e0073819" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>qspi_bus</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="cb521541-c3bd-4c30-9b6c-050f4cdc029a" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>spi_bus</seg>
+        </bo>
+        <position x="201.22666931152344" y="10.0"/>
+      </element>
+      <element uuid="29dbb069-3451-44e7-9845-d0b83efcea00" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>uart_bus</seg>
+        </bo>
+        <position x="193.2133331298828" y="64.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>main_mcu</seg>
+      </bo>
+      <position x="200.0" y="300.0"/>
+      <size width="260.0" height="172.0"/>
+    </element>
+    <element uuid="60e68a36-f5b7-49c3-bb8c-89509d27e01b" manual="true">
+      <element uuid="7696d351-b7cc-4d72-af14-48a3146fac0a" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>rc_data_out</seg>
+        </bo>
+        <position x="205.16000366210938" y="10.0"/>
+      </element>
+      <element uuid="5b9eb116-a995-4ac6-9e90-28d0b4826d08" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>uart_bus</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>rx_receiver</seg>
+      </bo>
+      <position x="780.0" y="590.0"/>
+      <size width="290.0" height="64.0"/>
+    </element>
+    <element uuid="f63b51c4-3f1a-4203-8b4c-b16da53e483e" manual="true">
+      <element uuid="0440ac3c-9207-4a90-bba4-c51542c767f3" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>voltage_out</seg>
+        </bo>
+        <position x="210.6666717529297" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>sensor_batt</seg>
+      </bo>
+      <position x="770.0" y="450.0"/>
+      <size width="296.0" height="64.0"/>
+    </element>
+    <element uuid="b2f0db29-8ad8-4b9b-a2cd-d5fb491b98a9" manual="true">
+      <element uuid="1aa0b2b6-4f06-4541-a6c0-5048ab531ac1" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>get_imu_data</seg>
+        </bo>
+        <position x="220.5066680908203" y="10.0"/>
+      </element>
+      <element uuid="799e51d6-be87-45e1-8272-42613a61037a" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>spi_bus</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>sensor_imu</seg>
+      </bo>
+      <position x="750.0" y="310.0"/>
+      <size width="317.0" height="64.0"/>
+    </element>
+    <element uuid="c76cf770-d076-4645-ab98-97c33515ad90" manual="true">
+      <element uuid="ae2966e7-0f9a-4b15-92ea-f07b72ec5b6d" manual="true">
+        <element uuid="e7838020-241b-457c-826f-8b0fac7a29b6" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>qspi_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>external_flash</seg>
+        </bo>
+        <position x="120.0" y="330.0"/>
+        <size width="274.0" height="64.0"/>
+      </element>
+      <element uuid="08dc9eb2-fe14-4001-b0fa-77134d0ad22d" manual="true">
+        <element uuid="4f36421b-04a7-4a3a-8538-2881dea362a0" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>log_att</seg>
+          </bo>
+          <position y="226.0"/>
+        </element>
+        <element uuid="700a7951-82f5-485e-b691-e44a5bfbfbe6" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>log_m1</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="690e77e5-e6ca-403f-9181-23c2ffb56315" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>log_pid_r</seg>
+          </bo>
+          <position y="64.0"/>
+        </element>
+        <element uuid="f4bf30a3-a1a3-4969-967c-c3802746d256" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>log_raw_imu</seg>
+          </bo>
+          <position y="118.0"/>
+        </element>
+        <element uuid="dc8dc6f8-1498-4dfa-99db-0cba3b43dda3" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>log_rc</seg>
+          </bo>
+          <position y="172.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>proc_logger</seg>
+        </bo>
+        <position x="120.0" y="40.0"/>
+        <size width="317.0" height="280.0"/>
+      </element>
+      <element uuid="e3f60593-1c3f-4597-8c56-d508629a4812" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_att_in</seg>
+        </bo>
+        <position y="279.0"/>
+      </element>
+      <element uuid="d37d91b8-532f-4779-8f55-4460e4382a10" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_m1_in</seg>
+        </bo>
+        <position y="70.0"/>
+      </element>
+      <element uuid="b479341e-f79f-4319-8592-f59471d2dc21" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_pid_r_in</seg>
+        </bo>
+        <position y="119.0"/>
+      </element>
+      <element uuid="7de4d075-6db8-4255-9bbc-e6dbebb3f93b" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_raw_imu_in</seg>
+        </bo>
+        <position y="170.0"/>
+      </element>
+      <element uuid="ad74b4ba-4c05-4e1d-bea1-7b7454e891d6" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_rc_in</seg>
+        </bo>
+        <position y="230.0"/>
+      </element>
+      <element uuid="2247bbba-40a7-4d58-b01d-ac9c608e2fdc" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>qspi_bus</seg>
+        </bo>
+        <position y="340.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>sys_logger</seg>
+      </bo>
+      <position x="4850.0" y="830.0"/>
+      <size width="470.0" height="420.0"/>
+    </element>
+    <element uuid="ffcb0825-997c-4132-be7b-56f6eaa71cc5" manual="true">
+      <element uuid="7ceaf418-a3a5-4df1-8b4e-51e693ec1cd8" manual="true">
+        <element uuid="8b950736-feca-4921-b6eb-22289d34c719" manual="true">
+          <element uuid="4e4ecba3-c579-4e1f-abc4-059a2f33b72c" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>adc_voltage_in</seg>
+            </bo>
+            <position y="30.0"/>
+          </element>
+          <element uuid="88a38cba-8609-4e38-8c97-21e66c65882d" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>vbat_out</seg>
+            </bo>
+            <position x="237.6933364868164" y="30.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_batt</seg>
+          </bo>
+          <position x="210.0" y="40.0"/>
+          <size width="304.0" height="118.0"/>
+        </element>
+        <element uuid="655f7e6f-b7fe-46f7-9c7b-afcfb4c1d55e" manual="true">
+          <element uuid="54ff4199-1c90-4dd8-98cc-7f82761b8add" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>imu_filtered_out</seg>
+            </bo>
+            <position x="208.86668395996094" y="30.0"/>
+          </element>
+          <element uuid="bd030499-d59e-4eeb-914c-f3de87698eb3" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>imu_raw_in</seg>
+            </bo>
+            <position y="30.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_imu</seg>
+          </bo>
+          <position x="210.0" y="170.0"/>
+          <size width="323.0" height="118.0"/>
+        </element>
+        <element uuid="d7780a66-ea2e-4db8-a2fc-f66116a21f35" manual="true">
+          <element uuid="e74d136f-1c4a-4250-ab00-497b00e5ce3e" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>aux_channels_out</seg>
+            </bo>
+            <position x="224.32000732421875" y="150.0"/>
+          </element>
+          <element uuid="192ba58e-3cfa-4af7-9723-87fbdbc47181" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>rc_frame_in</seg>
+            </bo>
+            <position y="80.0"/>
+          </element>
+          <element uuid="d3dd9053-b279-448c-b073-0b314d0f291a" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>target_attitude_out</seg>
+            </bo>
+            <position x="215.38668823242188" y="90.0"/>
+          </element>
+          <element uuid="ad63f5a7-ef0a-4b42-81d8-8456c71361e1" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>throttle_out</seg>
+            </bo>
+            <position x="261.7466735839844" y="40.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_rc</seg>
+          </bo>
+          <position x="210.0" y="300.0"/>
+          <size width="348.0" height="226.0"/>
+        </element>
+        <element uuid="b440b838-14c5-44b0-a0b9-eb355fc181b3" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>hw_imu_in</seg>
+          </bo>
+          <position y="200.0"/>
+        </element>
+        <element uuid="dcdb02ce-50ea-4079-b4c2-2e6e80248255" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>hw_rc_in</seg>
+          </bo>
+          <position y="380.0"/>
+        </element>
+        <element uuid="4d2c7489-e160-4712-b7f8-40f1670128f2" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>hw_vbat_in</seg>
+          </bo>
+          <position y="70.0"/>
+        </element>
+        <element uuid="1b12e0ef-25af-4c06-b03e-2e3304cd5111" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>imu_data_out</seg>
+          </bo>
+          <position x="632.9200057983398" y="200.0"/>
+        </element>
+        <element uuid="23574997-23a1-46e1-85d9-b45777cff439" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>raw_rc_log_out</seg>
+          </bo>
+          <position x="624.0400085449219" y="499.0"/>
+        </element>
+        <element uuid="150240a1-516b-448f-a7d7-8f27ce8aa093" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>rc_aux_out</seg>
+          </bo>
+          <position x="650.3600006103516" y="450.0"/>
+        </element>
+        <element uuid="9a6a4f36-b806-4655-ae68-179b200ed93d" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>rc_target_out</seg>
+          </bo>
+          <position x="634.8000030517578" y="390.0"/>
+        </element>
+        <element uuid="1135c1a9-99d5-4ac0-9325-782406257082" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>rc_throttle_out</seg>
+          </bo>
+          <position x="625.9200134277344" y="340.0"/>
+        </element>
+        <element uuid="0b4278cd-15af-46a8-a0bd-dacb02a8f819" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>vbat_out</seg>
+          </bo>
+          <position x="663.6933364868164" y="70.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>proc_input</seg>
+        </bo>
+        <position x="220.0" y="70.0"/>
+        <size width="730.0" height="550.0"/>
+      </element>
+      <element uuid="2106228c-6d43-4293-9830-d018fbc3f475" manual="true">
+        <element uuid="f01c04c2-2e4e-4651-b329-73842b290c9c" manual="true">
+          <element uuid="9c7f61b6-81dc-4b40-9ad0-1714b712c244" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>current_attitude_out</seg>
+            </bo>
+            <position x="230.49334716796875" y="30.0"/>
+          </element>
+          <element uuid="7e83ac05-d318-4e5b-a7b4-12d12520e148" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>imu_data_in</seg>
+            </bo>
+            <position y="30.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_est</seg>
+          </bo>
+          <position x="180.0" y="50.0"/>
+          <size width="371.0" height="118.0"/>
+        </element>
+        <element uuid="d9d35274-84a1-4e3e-ad6b-60621f7bf8ce" manual="true">
+          <element uuid="565020d5-3319-44d6-816b-a9955c175d2d" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>aux_channels_in</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <element uuid="790cd034-6c57-4916-99a4-d8ac3390856f" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>current_mode_out</seg>
+            </bo>
+            <position x="227.56002044677734" y="70.0"/>
+          </element>
+          <element uuid="14b9acef-a588-482c-8ff1-17f97bfeab15" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>system_status_in</seg>
+            </bo>
+            <position y="64.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_fmm</seg>
+          </bo>
+          <position x="160.0" y="550.0"/>
+          <size width="355.0" height="172.0"/>
+        </element>
+        <element uuid="54db1c6e-d040-488e-8a2f-c18288a2844b" manual="true">
+          <element uuid="470a5c25-e3df-47fe-b885-2d9e474534ae" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>current_att_in</seg>
+            </bo>
+            <position y="89.0"/>
+          </element>
+          <element uuid="9394d8b1-1c86-42c6-99f1-1cc1820bdfef" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_pitch_out</seg>
+            </bo>
+            <position x="231.10667419433594" y="120.0"/>
+          </element>
+          <element uuid="c8d56f42-f135-4a80-99bf-87f32ed492d4" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_roll_out</seg>
+            </bo>
+            <position x="241.74667358398438" y="70.0"/>
+          </element>
+          <element uuid="1ca9beaa-219e-4c7c-8d63-3c4e906c4144" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_yaw_out</seg>
+            </bo>
+            <position x="237.44000244140625" y="170.0"/>
+          </element>
+          <element uuid="a25cd6af-12cf-4b6e-8295-638a62a95624" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>system_status_in</seg>
+            </bo>
+            <position y="200.0"/>
+          </element>
+          <element uuid="f80d68c6-1856-4e9b-8c2d-03729b603e9f" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>target_att_in</seg>
+            </bo>
+            <position y="138.0"/>
+          </element>
+          <element uuid="0a434e1f-dd04-46ef-97ec-ae24dcc2370e" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>throttle_in</seg>
+            </bo>
+            <position y="260.0"/>
+          </element>
+          <element uuid="dbf2914c-35c3-4729-8a14-763bb4a09022" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>throttle_mix_out</seg>
+            </bo>
+            <position x="211.8666763305664" y="20.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_pid</seg>
+          </bo>
+          <position x="650.0" y="130.0"/>
+          <size width="327.0" height="432.0"/>
+        </element>
+        <element uuid="edfd821d-ee33-41b5-be55-840ed00b6298" manual="true">
+          <element uuid="4921e608-6569-405b-8297-a15e12f1c3c1" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>current_mode_in</seg>
+            </bo>
+            <position y="70.0"/>
+          </element>
+          <element uuid="3ea9cdd4-8f07-4436-80d1-078b3cf65afb" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>imu_in</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <element uuid="ae80ecc8-cff0-4ded-932b-1e9b0ff1d446" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>system_status_out</seg>
+            </bo>
+            <position x="235.5466766357422" y="150.0"/>
+          </element>
+          <element uuid="175e8ac8-0ffb-40a0-9b81-9d413b7642ec" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>throttle_in</seg>
+            </bo>
+            <position y="200.0"/>
+          </element>
+          <element uuid="a19f3d1d-62dc-454c-8cb2-23b4d5349a51" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>vbat_in</seg>
+            </bo>
+            <position y="140.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_safety</seg>
+          </bo>
+          <position x="180.0" y="180.0"/>
+          <size width="363.0" height="280.0"/>
+        </element>
+        <element uuid="6b1cbaab-807e-41af-ad7d-56a2d5acf722" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>connection_reference</seg>
+            <seg>c_est_out : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_est.current_attitude_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.current_att_in</seg>
+          </bo>
+          <bendpoints>
+            <point x="1002.9998779296875" y="-253.0"/>
+            <point x="1000.9998779296875" y="-115.0"/>
+          </bendpoints>
+        </element>
+        <element uuid="c16fe5b8-ac87-4f8c-942a-adb119bea360" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>connection_reference</seg>
+            <seg>c_fmm_mode : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_fmm.current_mode_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.current_mode_in</seg>
+          </bo>
+          <bendpoints>
+            <point x="950.9998779296875" y="289.0"/>
+            <point x="948.9998779296875" y="129.0"/>
+            <point x="493.0" y="131.0"/>
+            <point x="495.0" y="-85.0"/>
+          </bendpoints>
+        </element>
+        <element uuid="323e0649-4b31-42c4-9b5e-a21aa7da017d" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>connection_reference</seg>
+            <seg>c_safe_pid : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.system_status_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.system_status_in</seg>
+          </bo>
+        </element>
+        <element uuid="2fd41d74-494a-45ec-8592-5f089814877f" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>connection_reference</seg>
+            <seg>c_safety_stat_fmm : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.system_status_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_fmm.system_status_in</seg>
+          </bo>
+          <bendpoints>
+            <point x="984.9998779296875" y="-3.0"/>
+            <point x="984.9998779296875" y="161.0"/>
+            <point x="527.0" y="161.0"/>
+            <point x="523.0" y="279.0"/>
+          </bendpoints>
+        </element>
+        <element uuid="b249f170-b674-4553-8f4a-e7d92160dba9" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>att_log_out</seg>
+          </bo>
+          <position x="1078.2266693115234" y="640.0"/>
+        </element>
+        <element uuid="0272f67b-030f-4fb2-9c5d-b936609d03f3" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>att_tele_out</seg>
+          </bo>
+          <position x="1074.640007019043" y="690.0"/>
+        </element>
+        <element uuid="ea17a60d-4b6d-4ebf-8cbe-4b3bedcb3305" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>aux_in</seg>
+          </bo>
+          <position y="560.0"/>
+        </element>
+        <element uuid="4863d014-e1d5-4fde-a3d6-8377cd30e2b9" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>imu_in</seg>
+          </bo>
+          <position y="200.0"/>
+        </element>
+        <element uuid="6e3d72aa-1a38-4fb7-ab95-1a39b7fe80fb" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>mode_out</seg>
+          </bo>
+          <position x="1084.706672668457" y="70.0"/>
+        </element>
+        <element uuid="24c87e46-3468-497b-b1df-56de2f2f4139" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_pitch_out</seg>
+          </bo>
+          <position x="1064.106674194336" y="399.0"/>
+        </element>
+        <element uuid="1e9a8867-c5e3-4675-847e-e8e870c9ac06" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_roll_out</seg>
+          </bo>
+          <position x="1074.7466735839844" y="350.0"/>
+        </element>
+        <element uuid="81468afc-a04c-43ba-9c0e-013c6da60807" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_yaw_out</seg>
+          </bo>
+          <position x="1070.4400024414062" y="450.0"/>
+        </element>
+        <element uuid="a2bf72fd-bcdd-468b-a23a-30ac8cb6cc51" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>sys_status_out</seg>
+          </bo>
+          <position x="1057.3466796875" y="510.0"/>
+        </element>
+        <element uuid="baaf28bd-757e-4660-bc84-0483114e156f" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>target_att_in</seg>
+          </bo>
+          <position y="20.0"/>
+        </element>
+        <element uuid="949465eb-4f53-4e8a-b045-8d4a423137cb" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>thr_mixed_out</seg>
+          </bo>
+          <position x="1057.8000030517578" y="300.0"/>
+        </element>
+        <element uuid="f79b49bd-b89c-4dea-b3cd-92bfee1f0a23" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>throttle_in</seg>
+          </bo>
+          <position y="380.0"/>
+        </element>
+        <element uuid="d54f91d0-ea53-465e-896d-e9b6bec5baa1" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>vbat_in</seg>
+          </bo>
+          <position y="330.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>proc_logic</seg>
+        </bo>
+        <position x="1170.0" y="80.0"/>
+        <size width="1160.0" height="760.0"/>
+      </element>
+      <element uuid="23362cbc-92e5-4fc3-bf01-40563b3691b7" manual="true">
+        <element uuid="658cd137-3bdd-431c-9b16-1f784322442b" manual="true">
+          <element uuid="03c4536f-b8b4-40ba-903a-157d38878800" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>motor1_out</seg>
+            </bo>
+            <position x="244.41333770751953" y="40.0"/>
+          </element>
+          <element uuid="c173ebc1-9ce7-4aad-9e4c-ef74907a878d" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>motor2_out</seg>
+            </bo>
+            <position x="244.41333770751953" y="90.0"/>
+          </element>
+          <element uuid="e7d08af8-7701-4835-8a73-b1977fc74892" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>motor3_out</seg>
+            </bo>
+            <position x="244.41333770751953" y="150.0"/>
+          </element>
+          <element uuid="155b632b-ebae-4595-8585-58f6b30ba6cf" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>motor4_out</seg>
+            </bo>
+            <position x="244.41333770751953" y="210.0"/>
+          </element>
+          <element uuid="cdb2f4a9-a912-45a8-acb0-c2b765303ca5" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_pitch</seg>
+            </bo>
+            <position y="138.0"/>
+          </element>
+          <element uuid="d4dd446b-9718-4501-9dd3-1f103025e63a" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_roll</seg>
+            </bo>
+            <position y="89.0"/>
+          </element>
+          <element uuid="63aad58f-9cf7-4b2e-93b8-96729ef928bb" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pid_yaw</seg>
+            </bo>
+            <position y="187.0"/>
+          </element>
+          <element uuid="39990ea2-8cd5-4b50-afd0-11c6e8e407bf" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>system_status_in</seg>
+            </bo>
+            <position y="240.0"/>
+          </element>
+          <element uuid="b973cbc9-2f88-4349-a5de-0354ac16eba7" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>throttle</seg>
+            </bo>
+            <position y="40.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_mix</seg>
+          </bo>
+          <position x="180.0" y="260.0"/>
+          <size width="330.0" height="310.0"/>
+        </element>
+        <element uuid="c3b03ad3-76cb-45c7-83f3-a5bee74da61d" manual="true">
+          <element uuid="b55a41d3-fb5e-4984-946d-df6571b134f1" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>attitude_in</seg>
+            </bo>
+            <position y="130.0"/>
+          </element>
+          <element uuid="9294f557-27e4-4eb0-9f1f-d2389a5b1e48" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>rssi_in</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <element uuid="32941e83-3c8c-4a71-aece-fdf7a9514c69" manual="true" dockArea="right">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>telemetry_out</seg>
+            </bo>
+            <position x="193.56000518798828" y="60.0"/>
+          </element>
+          <element uuid="6279ca42-d939-4a38-9a92-c3cfd0dafdd3" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>vbat_in</seg>
+            </bo>
+            <position y="70.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>th_tele</seg>
+          </bo>
+          <position x="180.0" y="50.0"/>
+          <size width="293.0" height="190.0"/>
+        </element>
+        <element uuid="4ea6d140-409c-41d0-b370-253d79a118b4" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>attitude_in</seg>
+          </bo>
+          <position y="180.0"/>
+        </element>
+        <element uuid="1cfc66bf-ba27-4e32-bec6-480f0ba3472e" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>m1_out</seg>
+          </bo>
+          <position x="620.8666687011719" y="340.0"/>
+        </element>
+        <element uuid="6750e2c0-699e-44ea-a20d-bb6ea85b8785" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>m2_out</seg>
+          </bo>
+          <position x="620.8666687011719" y="390.0"/>
+        </element>
+        <element uuid="56321275-7a81-4269-8b0d-5545e4ce6529" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>m3_out</seg>
+          </bo>
+          <position x="620.8666687011719" y="450.0"/>
+        </element>
+        <element uuid="cffea9d6-fa58-45db-a00b-8e3030f690e2" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>m4_out</seg>
+          </bo>
+          <position x="620.8666687011719" y="510.0"/>
+        </element>
+        <element uuid="cf4cd41a-bf83-4ae2-8f41-aa9a8e03cf2b" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_pitch_in</seg>
+          </bo>
+          <position y="398.0"/>
+        </element>
+        <element uuid="d7c9f73b-caca-4230-bb0e-9c5f6255b8aa" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_roll_in</seg>
+          </bo>
+          <position y="349.0"/>
+        </element>
+        <element uuid="05f87483-d6b6-4b5a-8861-f2b72488771c" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pid_yaw_in</seg>
+          </bo>
+          <position y="447.0"/>
+        </element>
+        <element uuid="7c28b829-e793-453c-b082-8f5b24e055fc" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>rc_aux_in</seg>
+          </bo>
+          <position y="70.0"/>
+        </element>
+        <element uuid="08a52f3c-20ae-429f-82f1-976c6904f5ec" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>sys_status_in</seg>
+          </bo>
+          <position y="510.0"/>
+        </element>
+        <element uuid="c45ccf9e-2356-40b9-8d27-867783c564ed" manual="true" dockArea="right">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>telemetry_out</seg>
+          </bo>
+          <position x="580.5600051879883" y="130.0"/>
+        </element>
+        <element uuid="39a61d22-3531-451d-a91a-4e72fb3e782f" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>throttle_in</seg>
+          </bo>
+          <position y="300.0"/>
+        </element>
+        <element uuid="f2e6be6c-b547-4226-a8b7-421eeffa5610" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>vbat_in</seg>
+          </bo>
+          <position y="120.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>proc_output</seg>
+        </bo>
+        <position x="2570.0" y="80.0"/>
+        <size width="680.0" height="600.0"/>
+      </element>
+      <element uuid="f5413d5a-6077-4108-9ae5-3522e757c120" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_aux_fmm : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.aux_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_fmm.aux_channels_in</seg>
+        </bo>
+      </element>
+      <element uuid="e46e0ca9-5814-48b7-ae77-a5cec4436f30" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_bat_out : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_batt.vbat_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.vbat_out</seg>
+        </bo>
+      </element>
+      <element uuid="09005fae-1f55-492a-9201-842623b306d6" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_est_in : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.imu_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_est.imu_data_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="464.0" y="-136.0"/>
+          <point x="466.0" y="-252.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="02c449c0-2e72-4fbd-be75-fc819872092b" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_est_tele : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_est.current_attitude_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.att_tele_out</seg>
+        </bo>
+        <bendpoints>
+          <point x="1426.9998779296875" y="-253.0"/>
+          <point x="1420.9998779296875" y="357.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="2d465c07-1e65-4394-ba61-709d627e3b51" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_imu_out : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_imu.imu_filtered_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.imu_data_out</seg>
+        </bo>
+      </element>
+      <element uuid="7fc10362-f75d-48af-a8c7-01c73f1307f3" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_p : Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_pitch_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.pid_pitch</seg>
+        </bo>
+      </element>
+      <element uuid="8a1924d8-2cfb-49ec-b197-ecc7396e5680" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_p : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.pid_pitch_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_pitch_out</seg>
+        </bo>
+      </element>
+      <element uuid="0ad87e48-1433-41ea-9f4d-756ad75180de" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_r : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.pid_roll_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_roll_out</seg>
+        </bo>
+      </element>
+      <element uuid="e73b13b2-3674-46d0-b7a3-e7771d03de66" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_t : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.throttle_mix_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.thr_mixed_out</seg>
+        </bo>
+      </element>
+      <element uuid="bf0ca17c-e802-4a91-afb8-81f5c42c772b" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_tar : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.target_att_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.target_att_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="534.0" y="-314.0"/>
+          <point x="536.0" y="-346.0"/>
+          <point x="1029.9998779296875" y="-344.0"/>
+          <point x="1027.9998779296875" y="-68.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="a3aa8a78-2436-43a1-9612-a61a4851fbad" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_thr : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.throttle_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.throttle_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="450.0" y="50.0"/>
+          <point x="448.0" y="112.0"/>
+          <point x="1025.9998779296875" y="116.0"/>
+          <point x="1023.9998779296875" y="60.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="d657eea4-daae-4ab1-a11e-b024b2fff946" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_pid_y : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.pid_yaw_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_yaw_out</seg>
+        </bo>
+      </element>
+      <element uuid="52ca859b-5c5a-4cc6-bc88-279d449858ea" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_r : Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_roll_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.pid_roll</seg>
+        </bo>
+      </element>
+      <element uuid="d6a02ead-39ce-4abe-b9a9-755ab3796d8a" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_rc_att : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_rc.target_attitude_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_target_out</seg>
+        </bo>
+      </element>
+      <element uuid="5d863acc-fb22-491d-bceb-f2072056c7b1" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_rc_aux : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_rc.aux_channels_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_aux_out</seg>
+        </bo>
+      </element>
+      <element uuid="4ac3ab8a-cd69-406e-be2b-3172731c4d76" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_rc_thr : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_rc.throttle_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_throttle_out</seg>
+        </bo>
+      </element>
+      <element uuid="7ad41d43-1bdc-4a66-bc1b-61f2d98566b1" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_safe_bat : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.vbat_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.vbat_in</seg>
+        </bo>
+      </element>
+      <element uuid="9d96f212-e94b-4200-9faf-ac7d6a5872fb" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_safe_imu : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.imu_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.imu_in</seg>
+        </bo>
+      </element>
+      <element uuid="281b1845-6f31-4342-a5e6-b17a4ca8900b" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_safe_stat : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.system_status_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.sys_status_out</seg>
+        </bo>
+        <bendpoints>
+          <point x="986.9998779296875" y="-1.0"/>
+          <point x="980.9998779296875" y="293.0"/>
+          <point x="1450.9998779296875" y="295.0"/>
+          <point x="1452.9998779296875" y="181.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="8936b7cf-2722-4ec7-9fc9-9c9ebc6827da" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_safe_thr : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.throttle_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_safety.throttle_in</seg>
+        </bo>
+      </element>
+      <element uuid="83294a9d-32c4-4d2c-944d-0e785922eeab" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_stat : Quadcopter_FC_impl_Instance.sys_processing.proc_output.sys_status_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.system_status_in</seg>
+        </bo>
+      </element>
+      <element uuid="6edecdf0-799a-4afd-baec-472c44e6ddb4" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_t : Quadcopter_FC_impl_Instance.sys_processing.proc_output.throttle_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.throttle</seg>
+        </bo>
+      </element>
+      <element uuid="3076cf0d-c037-4436-b8f8-bec075531659" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_tele_att : Quadcopter_FC_impl_Instance.sys_processing.proc_output.attitude_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_tele.attitude_in</seg>
+        </bo>
+      </element>
+      <element uuid="8c034e6c-cd87-40a4-81bb-1f518c3d0b53" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_tele_rssi : Quadcopter_FC_impl_Instance.sys_processing.proc_output.rc_aux_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_tele.rssi_in</seg>
+        </bo>
+      </element>
+      <element uuid="1a5d2a3e-4d14-49d8-9960-7104163b1996" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_tele_vbat : Quadcopter_FC_impl_Instance.sys_processing.proc_output.vbat_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_tele.vbat_in</seg>
+        </bo>
+      </element>
+      <element uuid="4dc07bad-d422-4720-83eb-d855924f4699" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>c_y : Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_yaw_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.pid_yaw</seg>
+        </bo>
+      </element>
+      <element uuid="f154b272-0ecd-401c-bb68-e4db6eab011c" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_att : Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_target_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.target_att_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="210.99998474121094" y="48.0"/>
+          <point x="212.99998474121094" y="-316.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="13311189-9d2d-494d-8c4f-8c2b85ac1de8" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_aux : Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_aux_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.aux_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="324.0" y="112.0"/>
+          <point x="320.0" y="226.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="61f4db9c-15f2-47b2-a57d-8e47469a5f2f" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_bat : Quadcopter_FC_impl_Instance.sys_processing.proc_input.vbat_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.vbat_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="349.0" y="-274.0"/>
+          <point x="347.0" y="-6.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="7e967079-9618-41f9-91b5-30ad071b43fd" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_imu : Quadcopter_FC_impl_Instance.sys_processing.proc_input.imu_data_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.imu_in</seg>
+        </bo>
+      </element>
+      <element uuid="94716a47-ddd4-4c83-b573-938a57948ee8" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_pp : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_pitch_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_pitch_in</seg>
+        </bo>
+      </element>
+      <element uuid="3fdc5e77-5148-4c82-bd53-dfe9c937a07f" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_pr : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_roll_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_roll_in</seg>
+        </bo>
+      </element>
+      <element uuid="52944567-611b-4d02-97d5-472c35f41fa7" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_pt : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.thr_mixed_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.throttle_in</seg>
+        </bo>
+      </element>
+      <element uuid="ab54fb1a-bac8-432a-a29e-961b1f10ffc4" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_py : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_yaw_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.pid_yaw_in</seg>
+        </bo>
+      </element>
+      <element uuid="02c5e8b3-fb70-479f-bc72-6a297a28ecb8" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_stat : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.sys_status_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.sys_status_in</seg>
+        </bo>
+      </element>
+      <element uuid="1a0939c7-70a7-4960-ade7-46cb99f43eb4" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>sf_thr : Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_throttle_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.throttle_in</seg>
+        </bo>
+      </element>
+      <element uuid="94a91442-dcc2-474e-9daf-24ddf5a3ecac" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>tele_att : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.att_tele_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.attitude_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="1570.9998779296875" y="-157.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="d3d8e766-3fff-4915-ae88-7349b358bd1e" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>tele_rssi : Quadcopter_FC_impl_Instance.sys_processing.proc_input.rc_aux_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.rc_aux_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="250.0" y="108.0"/>
+          <point x="254.0" y="-414.0"/>
+          <point x="1763.9998779296875" y="-410.0"/>
+          <point x="1759.9998779296875" y="-264.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="0b052b2d-153a-463e-b359-c30d05271eaa" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>tele_vbat : Quadcopter_FC_impl_Instance.sys_processing.proc_input.vbat_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.vbat_in</seg>
+        </bo>
+        <bendpoints>
+          <point x="308.0" y="-274.0"/>
+          <point x="312.0" y="-392.0"/>
+          <point x="1723.9998779296875" y="-388.0"/>
+          <point x="1721.9998779296875" y="-212.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="675a7378-9353-4d6f-8553-ed7984451052" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>hw_imu_in</seg>
+        </bo>
+        <position y="271.0"/>
+      </element>
+      <element uuid="85f1a995-06d2-4133-9098-26999c1edd88" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>hw_rc_in</seg>
+        </bo>
+        <position y="541.0"/>
+      </element>
+      <element uuid="90b5c731-56b8-438f-9a23-134d43541e21" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>hw_vbat_in</seg>
+        </bo>
+        <position y="406.0"/>
+      </element>
+      <element uuid="56b9883e-c29f-4a91-936a-fca2c1d29f36" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_att_out</seg>
+        </bo>
+        <position x="3388.226676940918" y="847.0"/>
+      </element>
+      <element uuid="aa94344d-43d8-4383-beaf-3474d85a5039" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_pid_r_out</seg>
+        </bo>
+        <position x="3374.0666732788086" y="700.0"/>
+      </element>
+      <element uuid="85730ca4-20db-467e-b317-bf5e8b0c9cbc" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_raw_imu_out</seg>
+        </bo>
+        <position x="3351.800018310547" y="749.0"/>
+      </element>
+      <element uuid="29f493f8-fb9f-4d60-839f-621317b50939" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>log_rc_out</seg>
+        </bo>
+        <position x="3393.42667388916" y="798.0"/>
+      </element>
+      <element uuid="54ce373e-2f92-4d51-bec2-6e9391ee6f90" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>m1_out</seg>
+        </bo>
+        <position x="3410.866668701172" y="420.0"/>
+      </element>
+      <element uuid="46dc2eea-7513-4f5b-9411-7defccc6c42e" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>m2_out</seg>
+        </bo>
+        <position x="3410.866668701172" y="470.0"/>
+      </element>
+      <element uuid="8b25992b-e543-41a6-a12e-139970adcbef" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>m3_out</seg>
+        </bo>
+        <position x="3410.866668701172" y="530.0"/>
+      </element>
+      <element uuid="8d6e5d0d-ab3e-4484-8c1f-9bd0147b75f2" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>m4_out</seg>
+        </bo>
+        <position x="3410.866668701172" y="590.0"/>
+      </element>
+      <element uuid="c0e6bde0-25bf-4a6b-8384-3a00b979fdaf" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>telemetry_out</seg>
+        </bo>
+        <position x="3370.5600051879883" y="150.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>sys_processing</seg>
+      </bo>
+      <position x="1230.0" y="60.0"/>
+      <size width="3470.0" height="900.0"/>
+    </element>
+    <element uuid="3282be56-c64a-40df-9cf3-48f81c1fd17d" manual="true">
+      <element uuid="7cab3e14-0fc8-4602-9d17-18474b8c4911" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>telemetry_in</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="9aaf3ae6-1509-4c5b-b5da-1f7aa7f41af3" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>uart_bus</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>telemetry_tx</seg>
+      </bo>
+      <position x="5010.0" y="180.0"/>
+      <size width="310.0" height="118.0"/>
+    </element>
+    <element uuid="71ca3d01-0ccc-4a7e-b01f-ae894d5371a1" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_att : Quadcopter_FC_impl_Instance.sys_logger.log_att_in -> Quadcopter_FC_impl_Instance.sys_logger.proc_logger.log_att</seg>
+      </bo>
+    </element>
+    <element uuid="287b0590-6242-4c5e-89fc-a9c1afd2954d" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_bat_in : Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_vbat_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_batt.adc_voltage_in</seg>
+      </bo>
+    </element>
+    <element uuid="27d3b25b-e188-4bf9-bfff-b371e34340f5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_est_log : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_est.current_attitude_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.att_log_out</seg>
+      </bo>
+    </element>
+    <element uuid="169635f6-d73f-49b0-ba67-7e5cef098cac" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_imu : Quadcopter_FC_impl_Instance.sys_logger.log_raw_imu_in -> Quadcopter_FC_impl_Instance.sys_logger.proc_logger.log_raw_imu</seg>
+      </bo>
+    </element>
+    <element uuid="16532f67-826b-4c3e-a339-a20de8e645e9" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_imu_in : Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_imu_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_imu.imu_raw_in</seg>
+      </bo>
+    </element>
+    <element uuid="5026a259-8a60-46ce-8c23-ffe165461a77" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_imu_out : Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_imu.imu_filtered_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.imu_data_out</seg>
+      </bo>
+    </element>
+    <element uuid="649d2504-9c9b-40d8-b4ae-5311bf4034ce" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_m1 : Quadcopter_FC_impl_Instance.sys_logger.log_m1_in -> Quadcopter_FC_impl_Instance.sys_logger.proc_logger.log_m1</seg>
+      </bo>
+    </element>
+    <element uuid="d4b31e55-497e-4272-b298-a7bdb82e3a2b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_m1 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.motor1_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.m1_out</seg>
+      </bo>
+    </element>
+    <element uuid="40169bfa-300f-45a7-938c-5c3b30ee3bd2" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_m2 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.motor2_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.m2_out</seg>
+      </bo>
+    </element>
+    <element uuid="97c0ad58-3ff9-4e04-9a50-9afe991811d1" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_m3 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.motor3_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.m3_out</seg>
+      </bo>
+    </element>
+    <element uuid="bd1660be-5685-4788-ad87-c28f2658cddf" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_m4 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_mix.motor4_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.m4_out</seg>
+      </bo>
+    </element>
+    <element uuid="1c48029e-efa6-4c9f-8ec6-6def4c13af4d" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_pid : Quadcopter_FC_impl_Instance.sys_logger.log_pid_r_in -> Quadcopter_FC_impl_Instance.sys_logger.proc_logger.log_pid_r</seg>
+      </bo>
+    </element>
+    <element uuid="cc77beb2-a65e-4b8a-820d-fa1dfa252c2b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_pid_r : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.th_pid.pid_roll_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_roll_out</seg>
+      </bo>
+    </element>
+    <element uuid="0650edfa-114b-43d6-86e3-eb46a45988aa" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_rc : Quadcopter_FC_impl_Instance.sys_logger.log_rc_in -> Quadcopter_FC_impl_Instance.sys_logger.proc_logger.log_rc</seg>
+      </bo>
+    </element>
+    <element uuid="27aa3ebe-0c02-4999-8fbf-8f3d44c9fbcf" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_rc_in : Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_rc_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.th_rc.rc_frame_in</seg>
+      </bo>
+    </element>
+    <element uuid="8b108556-ffcf-49c3-bc59-c5d1f6bfa410" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c_tele_out : Quadcopter_FC_impl_Instance.sys_processing.proc_output.th_tele.telemetry_out -> Quadcopter_FC_impl_Instance.sys_processing.proc_output.telemetry_out</seg>
+      </bo>
+    </element>
+    <element uuid="f7cf2811-1486-4182-b3f6-c1c3cd9c2c02" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_esc1 : Quadcopter_FC_impl_Instance.bus_pwm -> Quadcopter_FC_impl_Instance.esc_fl.pwm_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="2773.0" y="565.0"/>
+        <point x="2776.0" y="-97.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="17c335b4-8a10-4469-9235-dde74772feaf" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_esc2 : Quadcopter_FC_impl_Instance.bus_pwm -> Quadcopter_FC_impl_Instance.esc_fr.pwm_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="2775.0" y="565.0"/>
+        <point x="2776.0" y="33.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="47b397a4-3bb2-4f7d-b777-e143eaa4bb3e" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_esc3 : Quadcopter_FC_impl_Instance.bus_pwm -> Quadcopter_FC_impl_Instance.esc_rl.pwm_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="2774.0" y="564.0"/>
+        <point x="2776.0" y="156.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="218ef9bc-a8e5-4761-9abd-c3a8b1a8f08e" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_esc4 : Quadcopter_FC_impl_Instance.bus_pwm -> Quadcopter_FC_impl_Instance.esc_rr.pwm_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="2774.0" y="565.0"/>
+        <point x="2775.0" y="285.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="8e1b42a6-cb02-4772-889e-31012fb4da7c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_fl_qspi_mem : Quadcopter_FC_impl_Instance.bus_qspi -> Quadcopter_FC_impl_Instance.ext_flash_mem.qspi_bus</seg>
+      </bo>
+    </element>
+    <element uuid="a53b0ea2-760d-482f-b712-1652d99ef418" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_fl_qspi_mem : Quadcopter_FC_impl_Instance.ext_flash_mem.qspi_bus -> Quadcopter_FC_impl_Instance.bus_qspi</seg>
+      </bo>
+    </element>
+    <element uuid="e71d37c6-4e02-44b8-b5dd-b1f4edd8cb2e" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_hw_imu : Quadcopter_FC_impl_Instance.sys_processing.hw_imu_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_imu_in</seg>
+      </bo>
+    </element>
+    <element uuid="7d727179-87ba-43bf-b9b5-d9f01554fe68" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_hw_rc : Quadcopter_FC_impl_Instance.sys_processing.hw_rc_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_rc_in</seg>
+      </bo>
+    </element>
+    <element uuid="202a4896-b40e-416f-aad7-a74a9d356451" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_hw_vbat : Quadcopter_FC_impl_Instance.sys_processing.hw_vbat_in -> Quadcopter_FC_impl_Instance.sys_processing.proc_input.hw_vbat_in</seg>
+      </bo>
+    </element>
+    <element uuid="6685da11-ac66-4e8c-9e16-c661d03ded15" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_imu_spi : Quadcopter_FC_impl_Instance.bus_spi -> Quadcopter_FC_impl_Instance.sensor_imu.spi_bus</seg>
+      </bo>
+    </element>
+    <element uuid="e65fef83-5ab5-4ac3-88c3-1ee3ec8ed1e1" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_log_att : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.att_log_out -> Quadcopter_FC_impl_Instance.sys_processing.log_att_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="1602.0" y="306.0"/>
+        <point x="1598.0" y="424.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="ef0f1d58-a534-47a3-af65-0fbb2cb2f954" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_log_imu : Quadcopter_FC_impl_Instance.sys_processing.proc_input.imu_data_out -> Quadcopter_FC_impl_Instance.sys_processing.log_raw_imu_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="300.9999694824219" y="-140.0"/>
+        <point x="288.9999694824219" y="430.0"/>
+        <point x="2357.0" y="440.0"/>
+        <point x="2361.0" y="334.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="63fd0bad-0f2b-47e6-b5d1-916aa201403f" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_log_pid : Quadcopter_FC_impl_Instance.sys_processing.proc_logic.pid_roll_out -> Quadcopter_FC_impl_Instance.sys_processing.log_pid_r_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="1684.0" y="14.0"/>
+        <point x="1688.0" y="270.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="9dc262af-e3b8-4e70-abb1-cc50723b48fa" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_log_rc : Quadcopter_FC_impl_Instance.sys_processing.proc_input.raw_rc_log_out -> Quadcopter_FC_impl_Instance.sys_processing.log_rc_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="233.99996948242188" y="156.0"/>
+        <point x="229.99996948242188" y="410.0"/>
+        <point x="2632.0" y="410.0"/>
+        <point x="2632.0" y="386.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="f6345d7d-e2c4-40d9-a4f3-fef1b090e623" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_logger_qspi : Quadcopter_FC_impl_Instance.bus_qspi -> Quadcopter_FC_impl_Instance.sys_logger.qspi_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1535.9998779296875" y="290.0"/>
+        <point x="-1535.9998779296875" y="690.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="d58252b8-c897-4a7a-8d9d-58205e717e01" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_m1 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.m1_out -> Quadcopter_FC_impl_Instance.sys_processing.m1_out</seg>
+      </bo>
+    </element>
+    <element uuid="85db1a35-344a-43ec-9efb-3736222cc814" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_m2 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.m2_out -> Quadcopter_FC_impl_Instance.sys_processing.m2_out</seg>
+      </bo>
+    </element>
+    <element uuid="ad797996-038b-4223-98b8-131059eea642" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_m3 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.m3_out -> Quadcopter_FC_impl_Instance.sys_processing.m3_out</seg>
+      </bo>
+    </element>
+    <element uuid="b4614a02-b260-449c-8304-1f17fb76b422" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_m4 : Quadcopter_FC_impl_Instance.sys_processing.proc_output.m4_out -> Quadcopter_FC_impl_Instance.sys_processing.m4_out</seg>
+      </bo>
+    </element>
+    <element uuid="4284c726-acea-4ea7-9e6b-5353f34abbc4" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_pwm : Quadcopter_FC_impl_Instance.bus_pwm -> Quadcopter_FC_impl_Instance.main_mcu.pwm_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1845.9998779296875" y="575.0"/>
+        <point x="-1856.9998779296875" y="-55.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="e537e226-182d-4954-938f-32d924cc9a10" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_pwm : Quadcopter_FC_impl_Instance.main_mcu.pwm_bus -> Quadcopter_FC_impl_Instance.bus_pwm</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1855.9998779296875" y="-55.0"/>
+        <point x="-1845.9998779296875" y="575.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="cf796254-53bd-40fb-8d3e-81fc81e5f231" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_qspi : Quadcopter_FC_impl_Instance.bus_qspi -> Quadcopter_FC_impl_Instance.main_mcu.qspi_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1843.0" y="291.0"/>
+        <point x="-1848.0" y="-163.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="0c238d75-3a86-451d-95bd-9671e224a07b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_qspi : Quadcopter_FC_impl_Instance.main_mcu.qspi_bus -> Quadcopter_FC_impl_Instance.bus_qspi</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1849.0" y="-163.0"/>
+        <point x="-1842.0" y="292.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="47b379e8-5b2d-43af-ac43-1e4f5bf739f5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_spi : Quadcopter_FC_impl_Instance.bus_spi -> Quadcopter_FC_impl_Instance.main_mcu.spi_bus</seg>
+      </bo>
+    </element>
+    <element uuid="865f857e-e556-481b-b409-4c7c440ef462" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_spi : Quadcopter_FC_impl_Instance.main_mcu.spi_bus -> Quadcopter_FC_impl_Instance.bus_spi</seg>
+      </bo>
+    </element>
+    <element uuid="c3c45d46-a2c5-407e-8e7f-4140b1a6791e" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_uart : Quadcopter_FC_impl_Instance.bus_uart -> Quadcopter_FC_impl_Instance.main_mcu.uart_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1508.0" y="131.0"/>
+        <point x="-1508.0" y="-109.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="a8ca24ad-da9c-486f-a99b-188edcacb0ea" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_mcu_uart : Quadcopter_FC_impl_Instance.main_mcu.uart_bus -> Quadcopter_FC_impl_Instance.bus_uart</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1508.0" y="-109.0"/>
+        <point x="-1508.0" y="132.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="178379bb-8f8e-411c-87a7-f5b86ec8a1ee" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_qspi : Quadcopter_FC_impl_Instance.sys_logger.qspi_bus -> Quadcopter_FC_impl_Instance.sys_logger.external_flash.qspi_bus</seg>
+      </bo>
+    </element>
+    <element uuid="1c2df6c3-dbed-4e6e-9ecf-b6eaeafb7d8c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_rx_uart : Quadcopter_FC_impl_Instance.bus_uart -> Quadcopter_FC_impl_Instance.rx_receiver.uart_bus</seg>
+      </bo>
+    </element>
+    <element uuid="8e65f862-45e8-4855-b338-7dff159fd403" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_tele_out : Quadcopter_FC_impl_Instance.sys_processing.proc_output.telemetry_out -> Quadcopter_FC_impl_Instance.sys_processing.telemetry_out</seg>
+      </bo>
+    </element>
+    <element uuid="cf5f0ef7-5460-4bef-8d14-422e91abeaf0" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>conn_tele_uart : Quadcopter_FC_impl_Instance.bus_uart -> Quadcopter_FC_impl_Instance.telemetry_tx.uart_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-1263.0" y="136.0"/>
+        <point x="-1276.0" y="-474.0"/>
+        <point x="2919.0" y="-474.0"/>
+        <point x="2920.0" y="-230.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="229aa491-5c39-4448-b7bc-460c62ac700f" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_bat : Quadcopter_FC_impl_Instance.sensor_batt.voltage_out -> Quadcopter_FC_impl_Instance.sys_processing.hw_vbat_in</seg>
+      </bo>
+    </element>
+    <element uuid="73802ec9-dc41-4b5e-b3f8-467bc6022baa" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_imu : Quadcopter_FC_impl_Instance.sensor_imu.get_imu_data -> Quadcopter_FC_impl_Instance.sys_processing.hw_imu_in</seg>
+      </bo>
+    </element>
+    <element uuid="1053b5e2-ef6a-46c1-8409-15f1a13401ba" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_m1 : Quadcopter_FC_impl_Instance.sys_processing.m1_out -> Quadcopter_FC_impl_Instance.esc_fl.pwm_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="2744.0" y="4.0"/>
+        <point x="2745.0" y="-155.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="5f8520f2-48b9-4f68-a7d0-bf39e28295a3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_m2 : Quadcopter_FC_impl_Instance.sys_processing.m2_out -> Quadcopter_FC_impl_Instance.esc_fr.pwm_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="2759.0" y="55.0"/>
+        <point x="2760.0" y="-23.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="c37db5aa-e0d4-42c6-9bb2-366b545e2113" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_m3 : Quadcopter_FC_impl_Instance.sys_processing.m3_out -> Quadcopter_FC_impl_Instance.esc_rl.pwm_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="2726.0" y="118.0"/>
+        <point x="2885.0" y="112.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="73b4111b-c7b5-44bc-b96f-5a6344463de8" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_m4 : Quadcopter_FC_impl_Instance.sys_processing.m4_out -> Quadcopter_FC_impl_Instance.esc_rr.pwm_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="2736.0" y="178.0"/>
+        <point x="2738.0" y="231.0"/>
+        <point x="3026.0" y="235.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="465c32d8-1ad1-49e0-9194-71eb3e4f008c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_rx : Quadcopter_FC_impl_Instance.rx_receiver.rc_data_out -> Quadcopter_FC_impl_Instance.sys_processing.hw_rc_in</seg>
+      </bo>
+    </element>
+    <element uuid="763cceb1-19cf-47f6-9808-b2a82f3c5937" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>df_tele : Quadcopter_FC_impl_Instance.sys_processing.telemetry_out -> Quadcopter_FC_impl_Instance.telemetry_tx.telemetry_in</seg>
+      </bo>
+    </element>
+    <element uuid="ab030028-7e08-46b5-8ab3-b770bf271cc4" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>log_1 : Quadcopter_FC_impl_Instance.sys_processing.log_raw_imu_out -> Quadcopter_FC_impl_Instance.sys_logger.log_raw_imu_in</seg>
+      </bo>
+    </element>
+    <element uuid="07c903e8-9b5f-494c-a6b0-629171b095bd" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>log_2 : Quadcopter_FC_impl_Instance.sys_processing.log_rc_out -> Quadcopter_FC_impl_Instance.sys_logger.log_rc_in</seg>
+      </bo>
+    </element>
+    <element uuid="f453cd82-b823-493f-93b9-c0b6ec4c4ead" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>log_3 : Quadcopter_FC_impl_Instance.sys_processing.log_att_out -> Quadcopter_FC_impl_Instance.sys_logger.log_att_in</seg>
+      </bo>
+    </element>
+    <element uuid="d7923e9e-4353-4454-98a7-00e091494cc5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>log_4 : Quadcopter_FC_impl_Instance.sys_processing.log_pid_r_out -> Quadcopter_FC_impl_Instance.sys_logger.log_pid_r_in</seg>
+      </bo>
+    </element>
+    <element uuid="6dd86212-b2c2-425e-b85b-73919913381d" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>log_5 : Quadcopter_FC_impl_Instance.sys_processing.m1_out -> Quadcopter_FC_impl_Instance.sys_logger.log_m1_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="2743.0" y="4.0"/>
+        <point x="2746.0" y="424.0"/>
+      </bendpoints>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/uavflightcontrol/instances/flightcontrol_quadcopter_fc_impl_instance.aaxl2</seg>
+    </bo>
+    <position x="-2000.0" y="-510.0"/>
+    <size width="5352.0" height="1350.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/uavflightcontrol/instances/flightcontrol_quadcopter_fc_impl_instance.aaxl2</seg>
+    </context>
+  </config>
+</diagram:Diagram>

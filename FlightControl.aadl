@@ -153,6 +153,7 @@ public
 	--- MEMORY ---
 	---------------
 	
+	-- External_Flash
 	memory External_Flash
 		features
 			qspi_bus: requires bus access qspi; 
@@ -362,26 +363,22 @@ public
 			th_safety: thread Safety_Monitor.impl;
 			th_fmm:    thread Flight_Mode_Manager.impl;
 		connections
-			-- FLIGHT MODE MANAGER
 			c_aux_fmm: port aux_in -> th_fmm.aux_channels_in;
 			c_safety_stat_fmm: port th_safety.system_status_out -> th_fmm.system_status_in; 
 			c_fmm_mode: port th_fmm.current_mode_out -> th_safety.current_mode_in; 
 			c_fmm_mode_out: port th_fmm.current_mode_out -> mode_out; 
 
-			-- SAFETY MONITOR (Status)
 			c_safe_thr: port throttle_in -> th_safety.throttle_in;
 			c_safe_imu: port imu_in -> th_safety.imu_in;
 			c_safe_bat: port vbat_in -> th_safety.vbat_in;
 			c_safe_stat: port th_safety.system_status_out -> sys_status_out;
 			c_safe_pid:  port th_safety.system_status_out -> th_pid.system_status_in;
 			
-			-- ESTIMATION
 			c_est_in: port imu_in -> th_est.imu_data_in;
 			c_est_out: port th_est.current_attitude_out -> th_pid.current_att_in;
 			c_est_log: port th_est.current_attitude_out -> att_log_out;
 			c_est_tele: port th_est.current_attitude_out -> att_tele_out; 
 			
-			-- PID
 			c_pid_tar: port target_att_in -> th_pid.target_att_in;
 			c_pid_thr: port throttle_in -> th_pid.throttle_in;
 			
@@ -416,7 +413,6 @@ public
 			th_mix: thread Motor_Mixer.impl;
 			th_tele: thread Telemetry_Manager.impl;
 		connections
-			-- MIXER
 			c_stat: port sys_status_in -> th_mix.system_status_in;
 			c_r: port pid_roll_in -> th_mix.pid_roll;
 			c_p: port pid_pitch_in -> th_mix.pid_pitch;
@@ -428,7 +424,6 @@ public
 			c_m3: port th_mix.motor3_out -> m3_out;
 			c_m4: port th_mix.motor4_out -> m4_out;
 			
-			-- TELEMETRY MANAGER
 			c_tele_vbat: port vbat_in -> th_tele.vbat_in;
 			c_tele_rssi: port rc_aux_in -> th_tele.rssi_in;
 			c_tele_att: port attitude_in -> th_tele.attitude_in;
@@ -456,12 +451,39 @@ public
 			c_l4: port log_pid_r -> th_logger.pid_roll_in;
 			c_l5: port log_m1 -> th_logger.motors_in;
 	end Subsys_Blackbox.impl;
+
+    -- Subsys_Blackbox_System
+    system Subsys_Blackbox_System
+        features
+            log_raw_imu_in: in data port imu_data;
+			log_rc_in:		in data port sbus_frame;
+			log_att_in:	    in data port attitude_data;
+			log_pid_r_in:	in data port C_Types::float;
+			log_m1_in:		in data port motor_command;
+            
+            qspi_bus: requires bus access qspi.impl;
+    end Subsys_Blackbox_System;
+
+    system implementation Subsys_Blackbox_System.impl
+    	subcomponents
+    		external_flash: memory External_Flash;
+            proc_logger: process Subsys_Blackbox.impl;
+        connections
+            c_imu: port log_raw_imu_in -> proc_logger.log_raw_imu;
+			c_rc:  port log_rc_in -> proc_logger.log_rc;
+			c_att: port log_att_in -> proc_logger.log_att;
+			c_pid: port log_pid_r_in -> proc_logger.log_pid_r;
+			c_m1:  port log_m1_in -> proc_logger.log_m1;
+            
+            conn_qspi: bus access qspi_bus <-> external_flash.qspi_bus; 
+    end Subsys_Blackbox_System.impl;
 	
 	
 	-----------------
 	--- PROCESSOR ---
 	-----------------
 	
+	-- MCU
 	processor MCU 
 		features
 			spi_bus:  requires bus access spi;
@@ -474,105 +496,159 @@ public
 	--- SYSTEM START ---
 	--------------------
 	
-	system Quadcopter_FC
-	end Quadcopter_FC;
-	
-	system implementation Quadcopter_FC.impl
-		subcomponents
-			-- HARDWARE LAYER
-			main_mcu: processor MCU;
-			ext_flash_mem: memory External_Flash.impl;
-			
-			bus_spi:  bus spi.impl;
-			bus_uart: bus uart.impl;
-			bus_pwm:  bus pwm.impl;
-			bus_qspi: bus qspi.impl;
-			
-			sensor_imu:   device IMU;
-			sensor_batt:  device Battery_Sensor;
-			rx_receiver:  device Receiver;
-			telemetry_tx: device Telemetry_Transmitter;
-			
-			esc_fl: device ESC;
-			esc_fr: device ESC;
-			esc_rl: device ESC;
-			esc_rr: device ESC;
-			
-			-- SOFTWARE LAYER (SUBSYSTEMS)
-			proc_input:  process Subsys_Data_Acquisition.impl;
-			proc_logic:  process Subsys_Flight_Logic.impl;
-			proc_output: process Subsys_Output_Management.impl;
-			proc_logger: process Subsys_Blackbox.impl;
-			
-		connections
-			--------------------------
-			--- HARDWARE WIRING ---
-			--------------------------
-			conn_mcu_spi:  bus access bus_spi <-> main_mcu.spi_bus;
-			conn_mcu_uart: bus access bus_uart <-> main_mcu.uart_bus;
-			conn_mcu_pwm:  bus access bus_pwm <-> main_mcu.pwm_bus;
-			conn_mcu_qspi: bus access bus_qspi <-> main_mcu.qspi_bus;
-			
-			conn_imu_spi:  bus access bus_spi -> sensor_imu.spi_bus;
-			conn_rx_uart:  bus access bus_uart -> rx_receiver.uart_bus;
-			conn_tele_uart: bus access bus_uart -> telemetry_tx.uart_bus;
-			
-			conn_fl_qspi:  bus access bus_qspi -> ext_flash_mem.qspi_bus; 
-			
-			conn_esc1: bus access bus_pwm -> esc_fl.pwm_bus;
-			conn_esc2: bus access bus_pwm -> esc_fr.pwm_bus;
-			conn_esc3: bus access bus_pwm -> esc_rl.pwm_bus;
-			conn_esc4: bus access bus_pwm -> esc_rr.pwm_bus;
-			
-			----------------------------
-			--- DATA FLOW (SW <-> HW) ---
-			----------------------------
-			df_imu:  port sensor_imu.get_imu_data -> proc_input.hw_imu_in;
-			df_rx:   port rx_receiver.rc_data_out -> proc_input.hw_rc_in;
-			df_bat:  port sensor_batt.voltage_out -> proc_input.hw_vbat_in;
-			
-			df_tele: port proc_output.telemetry_out -> telemetry_tx.telemetry_in;
-			
-			df_m1: port proc_output.m1_out -> esc_fl.pwm_in;
-			df_m2: port proc_output.m2_out -> esc_fr.pwm_in;
-			df_m3: port proc_output.m3_out -> esc_rl.pwm_in;
-			df_m4: port proc_output.m4_out -> esc_rr.pwm_in;
-			
-			------------------------------------
-			--- DATA FLOW (SUBSYSTEM TO SUBSYSTEM) ---
-			------------------------------------
-			-- Data Acquisition to Flight Logic
-			sf_imu:  port proc_input.imu_data_out -> proc_logic.imu_in;
-			sf_att:  port proc_input.rc_target_out -> proc_logic.target_att_in;
-			sf_thr:  port proc_input.rc_throttle_out -> proc_logic.throttle_in;
-			sf_aux:  port proc_input.rc_aux_out -> proc_logic.aux_in;
-			sf_bat:  port proc_input.vbat_out -> proc_logic.vbat_in;
-			
-			-- Flight Logic to Output Management
-			sf_stat: port proc_logic.sys_status_out -> proc_output.sys_status_in;
-			sf_pr:   port proc_logic.pid_roll_out -> proc_output.pid_roll_in;
-			sf_pp:   port proc_logic.pid_pitch_out -> proc_output.pid_pitch_in;
-			sf_py:   port proc_logic.pid_yaw_out -> proc_output.pid_yaw_in;
-			sf_pt:   port proc_logic.thr_mixed_out -> proc_output.throttle_in;
-			
-			-- Data for Telemetry & Logging
-			tele_vbat: port proc_input.vbat_out -> proc_output.vbat_in;
-			tele_rssi: port proc_input.rc_aux_out -> proc_output.rc_aux_in;
-			tele_att: port proc_logic.att_tele_out -> proc_output.attitude_in;
-			
-			-- Logging
-			log_1: port proc_input.imu_data_out -> proc_logger.log_raw_imu;
-			log_2: port proc_input.raw_rc_log_out -> proc_logger.log_rc;
-			log_3: port proc_logic.att_log_out -> proc_logger.log_att;
-			log_4: port proc_logic.pid_roll_out -> proc_logger.log_pid_r;
-			log_5: port proc_output.m1_out -> proc_logger.log_m1;
+-- Data_Processing_System
+system Data_Processing_System
+        features
+            hw_imu_in:  in data port imu_data;
+            hw_rc_in:   in data port sbus_frame;
+            hw_vbat_in: in data port C_Types::float;
+            
+            telemetry_out: out data port telemetry_data;
+            m1_out: out data port motor_command;
+            m2_out: out data port motor_command;
+            m3_out: out data port motor_command;
+            m4_out: out data port motor_command;
 
-		properties
-			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_input;
-			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_logic;
-			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_output;
-			Actual_Processor_Binding => (reference(main_mcu)) applies to proc_logger;
-			
-	end Quadcopter_FC.impl;
-	
+            log_raw_imu_out: out data port imu_data;
+            log_rc_out:      out data port sbus_frame;
+            log_att_out:     out data port attitude_data;
+            log_pid_r_out:   out data port C_Types::float;
+    end Data_Processing_System;
+
+    system implementation Data_Processing_System.impl
+        subcomponents
+            proc_input:  process Subsys_Data_Acquisition.impl;
+            proc_logic:  process Subsys_Flight_Logic.impl;
+            proc_output: process Subsys_Output_Management.impl;
+        
+        connections
+            ------------------------------------
+            --- INTERNAL CONNECTIONS ---
+            ------------------------------------
+            
+            sf_imu:  port proc_input.imu_data_out -> proc_logic.imu_in;
+            sf_att:  port proc_input.rc_target_out -> proc_logic.target_att_in;
+            sf_thr:  port proc_input.rc_throttle_out -> proc_logic.throttle_in;
+            sf_aux:  port proc_input.rc_aux_out -> proc_logic.aux_in;
+            sf_bat:  port proc_input.vbat_out -> proc_logic.vbat_in;
+            
+            sf_stat: port proc_logic.sys_status_out -> proc_output.sys_status_in;
+            sf_pr:   port proc_logic.pid_roll_out -> proc_output.pid_roll_in;
+            sf_pp:   port proc_logic.pid_pitch_out -> proc_output.pid_pitch_in;
+            sf_py:   port proc_logic.pid_yaw_out -> proc_output.pid_yaw_in;
+            sf_pt:   port proc_logic.thr_mixed_out -> proc_output.throttle_in;
+            
+            tele_vbat: port proc_input.vbat_out -> proc_output.vbat_in;
+            tele_rssi: port proc_input.rc_aux_out -> proc_output.rc_aux_in;
+            tele_att:  port proc_logic.att_tele_out -> proc_output.attitude_in;
+
+            ------------------------------------
+            --- BOUNDARY CONNECTIONS ---
+            ------------------------------------
+            
+            conn_hw_imu:  port hw_imu_in -> proc_input.hw_imu_in;
+            conn_hw_rc:   port hw_rc_in -> proc_input.hw_rc_in;
+            conn_hw_vbat: port hw_vbat_in -> proc_input.hw_vbat_in;
+
+            conn_tele_out: port proc_output.telemetry_out -> telemetry_out;
+            conn_m1:       port proc_output.m1_out -> m1_out;
+            conn_m2:       port proc_output.m2_out -> m2_out;
+            conn_m3:       port proc_output.m3_out -> m3_out;
+            conn_m4:       port proc_output.m4_out -> m4_out;
+
+            conn_log_imu: port proc_input.imu_data_out -> log_raw_imu_out;
+            conn_log_rc:  port proc_input.raw_rc_log_out -> log_rc_out;
+            conn_log_att: port proc_logic.att_log_out -> log_att_out;
+            conn_log_pid: port proc_logic.pid_roll_out -> log_pid_r_out;
+
+    end Data_Processing_System.impl;
+
+    
+    --------------------
+    --- TOP LEVEL SYSTEM ---
+    --------------------
+    
+	-- Quadcopter_FC
+    system Quadcopter_FC
+    end Quadcopter_FC;
+    
+    system implementation Quadcopter_FC.impl
+        subcomponents
+            main_mcu: processor MCU;
+            ext_flash_mem: memory External_Flash.impl;
+            
+            bus_spi:  bus spi.impl;
+            bus_uart: bus uart.impl;
+            bus_pwm:  bus pwm.impl;
+            bus_qspi: bus qspi.impl;
+            
+            sensor_imu:   device IMU;
+            sensor_batt:  device Battery_Sensor;
+            rx_receiver:  device Receiver;
+            telemetry_tx: device Telemetry_Transmitter;
+            
+            esc_fl: device ESC;
+            esc_fr: device ESC;
+            esc_rl: device ESC;
+            esc_rr: device ESC;
+            
+            sys_processing: system Data_Processing_System.impl;
+            sys_logger:     system Subsys_Blackbox_System.impl; 
+            
+        connections
+            --------------------------
+            --- HARDWARE WIRING ---
+            --------------------------
+            conn_mcu_spi:  bus access bus_spi <-> main_mcu.spi_bus;
+            conn_mcu_uart: bus access bus_uart <-> main_mcu.uart_bus;
+            conn_mcu_pwm:  bus access bus_pwm <-> main_mcu.pwm_bus;
+            conn_mcu_qspi: bus access bus_qspi <-> main_mcu.qspi_bus;
+            
+            conn_imu_spi:   bus access bus_spi -> sensor_imu.spi_bus;
+            conn_rx_uart:   bus access bus_uart -> rx_receiver.uart_bus;
+            conn_tele_uart: bus access bus_uart -> telemetry_tx.uart_bus;
+            
+            conn_fl_qspi_mem: bus access bus_qspi <-> ext_flash_mem.qspi_bus; 
+            
+            conn_esc1: bus access bus_pwm -> esc_fl.pwm_bus;
+            conn_esc2: bus access bus_pwm -> esc_fr.pwm_bus;
+            conn_esc3: bus access bus_pwm -> esc_rl.pwm_bus;
+            conn_esc4: bus access bus_pwm -> esc_rr.pwm_bus;
+            
+            ----------------------------
+            --- DATA FLOW (SW <-> HW) ---
+            ----------------------------
+            
+            df_imu:  port sensor_imu.get_imu_data -> sys_processing.hw_imu_in;
+            df_rx:   port rx_receiver.rc_data_out -> sys_processing.hw_rc_in;
+            df_bat:  port sensor_batt.voltage_out -> sys_processing.hw_vbat_in;
+            
+            df_tele: port sys_processing.telemetry_out -> telemetry_tx.telemetry_in;
+            
+            df_m1: port sys_processing.m1_out -> esc_fl.pwm_in;
+            df_m2: port sys_processing.m2_out -> esc_fr.pwm_in;
+            df_m3: port sys_processing.m3_out -> esc_rl.pwm_in;
+            df_m4: port sys_processing.m4_out -> esc_rr.pwm_in;
+            
+            ------------------------------------
+            --- LOGGING CONNECTIONS ---
+            ------------------------------------
+            
+            log_1: port sys_processing.log_raw_imu_out -> sys_logger.log_raw_imu_in;
+            log_2: port sys_processing.log_rc_out -> sys_logger.log_rc_in;
+            log_3: port sys_processing.log_att_out -> sys_logger.log_att_in;
+            log_4: port sys_processing.log_pid_r_out -> sys_logger.log_pid_r_in;
+            log_5: port sys_processing.m1_out -> sys_logger.log_m1_in;
+
+            conn_logger_qspi: bus access bus_qspi -> sys_logger.qspi_bus;
+
+
+        properties
+            Actual_Processor_Binding => (reference(main_mcu)) applies to sys_processing;
+            
+            Actual_Processor_Binding => (reference(main_mcu)) applies to sys_logger;
+            Actual_Memory_Binding => (reference(ext_flash_mem)) applies to sys_logger;
+            
+    end Quadcopter_FC.impl;
+    
 end FlightControl;
