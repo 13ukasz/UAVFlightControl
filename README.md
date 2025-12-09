@@ -118,13 +118,92 @@ Dzięki temu dron jest stabilny, responsywny i bezpieczny w użytkowaniu.
 
 ---
 
-## Diagram systemu
+## Graficzny model systemu
 
-**Wersja uproszczona**
+### Wersja uproszczona systemu
 
 ![SimpleDiagram](./img/simple_diagram.svg)
 
-**Całość**
+### Całościowy diagram systemu
 
 ![FullDiagram](./img/advanced_diagram.svg)
 
+## Analizy systemu wykonane przy pomocy OSATE
+
+### ARINC429 Consistency
+
+Analiza nie wykazała żadnych błędów. Raport znajduje się w pliku  
+[instances/reports/ARINC429Consistency](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/ARINC429Consistency)
+
+---
+
+### Bound Resource Budgets
+
+Założono, że maksymalne obciążenie procesora wynosi **480 MIPS**.  
+Analiza wykazała, że na podstawie przyjętych danych zapotrzebowanie systemu wynosi **348.299 MIPS**, co mieści się w założonym budżecie.
+
+Szczegółowy raport znajduje się w pliku:  
+[instances/reports/BoundResourceBudgets](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/BoundResourceBudgets)
+
+---
+
+### Bus Load
+
+Wyniki analizy Bus Load znajdują się w pliku:  
+[instances/reports/BusLoad](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/BusLoad)
+
+Analiza nie przedstawiła nowych informacji dotyczących rzeczywistego obciążenia magistral. Zawiera ona dane o:
+
+- założonych budżetach przepustowości,
+- pojemności poszczególnych magistral.
+
+Brak wyników dotyczących faktycznego obciążenia wynika z problemów z przypisaniem parametrów do połączeń pomiędzy komponentami korzystającymi z magistral.
+
+---
+
+### Connection Consistency
+
+Szczegółowy raport znajduje się w pliku:  
+[instances/reports/ConnectionConsistency](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/ConnectionConsistency)
+
+Analiza nie wykazała żadnych błędów.
+
+---
+
+### Not Bound Resource Budgets
+
+Wyniki analizy są bardzo zbliżone do wyników analizy **Bound Resource Budgets**.  
+Zapotrzebowanie na zasoby procesora mieści się w założonych limitach.
+
+Szczegółowy raport znajduje się w pliku:  
+[instances/reports/NotBoundResourceBudgets](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/NotBoundResourceBudgets)
+
+---
+
+### Weight Analysis
+
+Zamodelowany system przedstawia głównie architekturę oprogramowania.  
+Mimo to do komponentów sprzętowych przypisano orientacyjne masy i przeprowadzono analizę wagową.
+
+W związku z tym niektóre elementy w raporcie posiadają wartość **0**, jednak ogólny sens analizy pozostaje poprawny i spójny.
+
+Szczegółowy raport dostępny jest w pliku:  
+[instances/reports/WeightAnalysis](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/WeightAnalysis)
+
+
+## Literatura
+
+1. Betaflight – Open Source Flight Controller Firmware  
+   https://github.com/betaflight/betaflight
+
+2. INAV – Navigation-enabled Flight Control Firmware  
+   https://github.com/iNavFlight/inav
+
+3. ArduPilot – Open Source Autopilot System  
+   https://ardupilot.org
+
+4. Designing My Own Flight Controller  
+   https://flying-rabbit-fpv.com/2020/10/06/designing-my-own-flight-controller/
+
+5. How I developed the Scout Flight Controller – Future Improvements  
+   https://timhanewich.medium.com/how-i-developed-the-scout-flight-controller-part-10-future-improvements-ae1957f81f76
