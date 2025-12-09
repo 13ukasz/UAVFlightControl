@@ -3,6 +3,7 @@
 ## Autor
 
 **Imię i nazwisko:** Łukasz Bogacz
+
 **E-mail:** lukaszbogacz@student.agh.edu.pl
 
 ---
