@@ -2,8 +2,8 @@
 
 ## Autor
 
-**Imię i nazwisko:** [TU WPISZ]  
-**E-mail:** [TU WPISZ]
+**Imię i nazwisko:** Łukasz Bogacz
+**E-mail:** lukaszbogacz@student.agh.edu.pl
 
 ---
 
@@ -118,10 +118,13 @@ Dzięki temu dron jest stabilny, responsywny i bezpieczny w użytkowaniu.
 
 ---
 
-## Model – rysunek
+## Diagram systemu
 
-Wklej tutaj swój diagram systemu wygenerowany z OSATE:
+**Wersja uproszczona**
 
-```markdown
-![Diagram modelu AADL](./img/model.png)
+![SimpleDiagram](./img/simple_diagram.svg)
+
+**Całość**
+
+![FullDiagram](./img/advanced_diagram.svg)
 
