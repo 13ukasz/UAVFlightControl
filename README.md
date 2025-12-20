@@ -1,198 +1,202 @@
-# Flight Control System – Model AADL (Kontroler lotu drona)
+# Flight Control System – AADL Model (Drone Flight Controller)
 
-## Autor
+## Author
 
-**Imię i nazwisko:** Łukasz Bogacz
+**Name and surname:** Łukasz Bogacz  
 
 **E-mail:** lukaszbogacz@student.agh.edu.pl
 
 ---
 
-## Opis modelowanego systemu
+## Description of the Modeled System
 
-### Opis ogólny
+### General Description
 
-Model przedstawia architekturę systemu sterowania lotem dla czterowirnikowego drona (quadcopter), zaprojektowaną w języku **AADL (Architecture Analysis & Design Language)**.  
-System realizuje pełny proces sterowania lotem, który obejmuje:
+The model presents the architecture of a flight control system for a four-rotor drone (quadcopter), designed using **AADL (Architecture Analysis & Design Language)**.  
+The system implements the complete flight control process, which includes:
 
-- pozyskiwanie danych z czujników (IMU, napięcie baterii, odbiornik RC),
-- estymację orientacji przestrzennej (roll, pitch, yaw),
-- obliczanie sygnałów sterujących (PID),
-- zarządzanie trybami lotu i bezpieczeństwem,
-- sterowanie silnikami poprzez regulatory ESC,
-- telemetrię,
-- zapis danych do pamięci (blackbox).
+- acquisition of sensor data (IMU, battery voltage, RC receiver),
+- estimation of spatial orientation (roll, pitch, yaw),
+- computation of control signals (PID),
+- flight mode and safety management,
+- motor control via ESCs,
+- telemetry,
+- data logging to memory (blackbox).
 
-Architektura została podzielona na **podsystemy funkcjonalne**, które zwiększają czytelność, modularność i możliwość analizy systemu.
-
----
-
-### Opis dla użytkownika
-
-Z punktu widzenia użytkownika (pilota drona) system:
-
-- odbiera komendy z aparatury RC,
-- stabilizuje drona automatycznie,
-- umożliwia przełączanie trybów lotu,
-- chroni przed sytuacjami niebezpiecznymi (np. niski poziom baterii),
-- zapisuje dane lotu do późniejszej analizy,
-- wysyła dane telemetryczne.
-
-Dzięki temu dron jest stabilny, responsywny i bezpieczny w użytkowaniu.
+The architecture is divided into **functional subsystems**, which improve readability, modularity, and enable system analysis.
 
 ---
 
-## Spis komponentów AADL z komentarzem
+### User-Oriented Description
 
-### Typy danych (Data)
+From the perspective of the user (drone pilot), the system:
 
-| Nazwa | Opis |
-|--------|------|
-| `imu_data` | Dane z czujnika IMU: przyspieszenia i prędkości kątowe |
-| `sbus_frame` | Ramka danych z odbiornika RC (SBUS) |
-| `attitude_data` | Orientacja drona: roll, pitch, yaw |
-| `motor_command` | Wartości sterujące silnikami |
-| `flight_mode_type` | Aktualny tryb lotu |
-| `system_status` | Status systemu (uzbrojenie, napięcie baterii, tryb) |
-| `telemetry_data` | Dane wysyłane przez telemetrię |
+- receives commands from the RC transmitter,
+- automatically stabilizes the drone,
+- allows switching between flight modes,
+- protects against unsafe situations (e.g. low battery level),
+- records flight data for later analysis,
+- transmits telemetry data.
 
----
-
-### Magistrale (Bus)
-
-| Typ | Zastosowanie |
-|------|--------------|
-| `spi`  | Komunikacja z IMU |
-| `uart` | Odbiornik RC i telemetria |
-| `qspi` | Zewnętrzna pamięć Flash |
-| `pwm`  | Sterowanie regulatorami ESC |
+As a result, the drone is stable, responsive, and safe to operate.
 
 ---
 
-### Urządzenia (Devices)
+## List of AADL Components with Commentary
 
-| Nazwa | Funkcja |
-|--------|--------|
-| `IMU` | Czujnik inercyjny |
-| `Receiver` | Odbiornik RC |
-| `Battery_Sensor` | Czujnik napięcia baterii |
-| `Telemetry_Transmitter` | Moduł telemetrii |
-| `ESC` | Regulatory silników |
+### Data Types (Data)
 
----
-
-### Pamięć
-
-| Nazwa | Opis |
-|--------|------|
-| `External_Flash` | Zewnętrzna pamięć QSPI do zapisu logów |
+| Name | Description |
+|------|-------------|
+| `imu_data` | IMU sensor data: accelerations and angular rates |
+| `sbus_frame` | Data frame from the RC receiver (SBUS) |
+| `attitude_data` | Drone orientation: roll, pitch, yaw |
+| `motor_command` | Motor control values |
+| `flight_mode_type` | Current flight mode |
+| `system_status` | System status (arming state, battery voltage, mode) |
+| `telemetry_data` | Data transmitted via telemetry |
 
 ---
 
-### Wątki (Threads)
+### Buses
 
-| Nazwa | Rola w systemie |
-|--------|-----------------|
-| `IMU_Driver` | Filtruje dane z IMU |
-| `RC_Handler` | Przetwarza dane z aparatury |
-| `Battery_Monitor` | Monitoruje napięcie baterii |
-| `Flight_Mode_Manager` | Zarządza trybami lotu |
-| `Safety_Monitor` | Kontroluje bezpieczeństwo |
-| `Attitude_Estimator` | Estymuje orientację |
-| `PID_Controller` | Regulator PID |
-| `Motor_Mixer` | Miesza sygnały na silniki |
-| `Telemetry_Manager` | Obsługa telemetrii |
-| `Blackbox_Writer` | Zapis danych do pamięci |
+| Type | Usage |
+|------|-------|
+| `spi`  | Communication with the IMU |
+| `uart` | RC receiver and telemetry |
+| `qspi` | External flash memory |
+| `pwm`  | ESC motor control |
 
 ---
 
-### Podsystemy (Processes / Systems)
+### Devices
 
-| Nazwa | Funkcja |
-|--------|--------|
-| `Subsys_Data_Acquisition` | Zbieranie danych z czujników |
-| `Subsys_Flight_Logic` | Logika lotu i sterowanie |
-| `Subsys_Output_Management` | Wyjścia: silniki i telemetria |
-| `Subsys_Blackbox` | Logowanie danych |
-| `Data_Processing_System` | Integracja głównych podsystemów |
-| `Quadcopter_FC` | System najwyższego poziomu |
+| Name | Function |
+|------|----------|
+| `IMU` | Inertial Measurement Unit |
+| `Receiver` | RC receiver |
+| `Battery_Sensor` | Battery voltage sensor |
+| `Telemetry_Transmitter` | Telemetry module |
+| `ESC` | Electronic Speed Controllers |
 
 ---
 
-## Graficzny model systemu
+### Memory
 
-### Wersja uproszczona systemu
+| Name | Description |
+|------|-------------|
+| `External_Flash` | External QSPI flash memory for data logging |
+
+---
+
+### Threads
+
+| Name | Role in the System |
+|------|--------------------|
+| `IMU_Driver` | Filters IMU data |
+| `RC_Handler` | Processes RC input |
+| `Battery_Monitor` | Monitors battery voltage |
+| `Flight_Mode_Manager` | Manages flight modes |
+| `Safety_Monitor` | Monitors system safety |
+| `Attitude_Estimator` | Estimates orientation |
+| `PID_Controller` | PID control algorithm |
+| `Motor_Mixer` | Mixes control signals for motors |
+| `Telemetry_Manager` | Handles telemetry |
+| `Blackbox_Writer` | Writes data to flash memory |
+
+---
+
+### Subsystems (Processes / Systems)
+
+| Name | Function |
+|------|----------|
+| `Subsys_Data_Acquisition` | Sensor data acquisition |
+| `Subsys_Flight_Logic` | Flight logic and control |
+| `Subsys_Output_Management` | Outputs: motors and telemetry |
+| `Subsys_Blackbox` | Data logging |
+| `Data_Processing_System` | Integration of main subsystems |
+| `Quadcopter_FC` | Top-level system |
+
+---
+
+## Graphical System Model
+
+### Simplified System Diagram
 
 ![SimpleDiagram](./img/simple_diagram.svg)
 
-### Całościowy diagram systemu
+### Full System Diagram
 
 ![FullDiagram](./img/advanced_diagram.svg)
 
-## Analizy systemu wykonane przy pomocy OSATE
+---
+
+## System Analyses Performed Using OSATE
 
 ### ARINC429 Consistency
 
-Analiza nie wykazała żadnych błędów. Raport znajduje się w pliku  
+The analysis did not reveal any errors.  
+The report is available at:  
 [instances/reports/ARINC429Consistency](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/ARINC429Consistency)
 
 ---
 
 ### Bound Resource Budgets
 
-Założono, że maksymalne obciążenie procesora wynosi **480 MIPS**.  
-Analiza wykazała, że na podstawie przyjętych danych zapotrzebowanie systemu wynosi **348.299 MIPS**, co mieści się w założonym budżecie.
+The maximum CPU load was assumed to be **480 MIPS**.  
+The analysis showed that, based on the adopted assumptions, the system requires **348.299 MIPS**, which is within the defined budget.
 
-Szczegółowy raport znajduje się w pliku:  
+Detailed report:  
 [instances/reports/BoundResourceBudgets](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/BoundResourceBudgets)
 
 ---
 
 ### Bus Load
 
-Wyniki analizy Bus Load znajdują się w pliku:  
+The Bus Load analysis results are available at:  
 [instances/reports/BusLoad](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/BusLoad)
 
-Analiza nie przedstawiła nowych informacji dotyczących rzeczywistego obciążenia magistral. Zawiera ona dane o:
+The analysis did not provide new information about the actual bus utilization. It contains data related to:
 
-- założonych budżetach przepustowości,
-- pojemności poszczególnych magistral.
+- assumed bandwidth budgets,
+- capacities of individual buses.
 
-Brak wyników dotyczących faktycznego obciążenia wynika z problemów z przypisaniem parametrów do połączeń pomiędzy komponentami korzystającymi z magistral.
+The lack of actual load results is caused by issues with assigning parameters to connections between components using the buses.
 
 ---
 
 ### Connection Consistency
 
-Szczegółowy raport znajduje się w pliku:  
+Detailed report available at:  
 [instances/reports/ConnectionConsistency](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/ConnectionConsistency)
 
-Analiza nie wykazała żadnych błędów.
+The analysis did not reveal any errors.
 
 ---
 
 ### Not Bound Resource Budgets
 
-Wyniki analizy są bardzo zbliżone do wyników analizy **Bound Resource Budgets**.  
-Zapotrzebowanie na zasoby procesora mieści się w założonych limitach.
+The results of this analysis are very similar to those of the **Bound Resource Budgets** analysis.  
+The CPU resource demand remains within the assumed limits.
 
-Szczegółowy raport znajduje się w pliku:  
+Detailed report:  
 [instances/reports/NotBoundResourceBudgets](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/NotBoundResourceBudgets)
 
 ---
 
 ### Weight Analysis
 
-Zamodelowany system przedstawia głównie architekturę oprogramowania.  
-Mimo to do komponentów sprzętowych przypisano orientacyjne masy i przeprowadzono analizę wagową.
+The modeled system primarily represents a software architecture.  
+Nevertheless, approximate weights were assigned to hardware components and a weight analysis was performed.
 
-W związku z tym niektóre elementy w raporcie posiadają wartość **0**, jednak ogólny sens analizy pozostaje poprawny i spójny.
+As a result, some elements in the report have a value of **0**, but the overall meaning of the analysis remains valid and consistent.
 
-Szczegółowy raport dostępny jest w pliku:  
+Detailed report available at:  
 [instances/reports/WeightAnalysis](https://github.com/13ukasz/UAVFlightControl/tree/main/instances/reports/WeightAnalysis)
 
+---
 
-## Literatura
+## References
 
 1. Betaflight – Open Source Flight Controller Firmware  
    https://github.com/betaflight/betaflight
@@ -206,5 +210,5 @@ Szczegółowy raport dostępny jest w pliku:
 4. Designing My Own Flight Controller  
    https://flying-rabbit-fpv.com/2020/10/06/designing-my-own-flight-controller/
 
-5. How I developed the Scout Flight Controller – Future Improvements  
+5. How I Developed the Scout Flight Controller – Future Improvements  
    https://timhanewich.medium.com/how-i-developed-the-scout-flight-controller-part-10-future-improvements-ae1957f81f76
